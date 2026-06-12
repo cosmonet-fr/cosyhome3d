@@ -70,12 +70,7 @@
     <echo message="compiling FSH3D for Java ${classTarget} minimum version"/>
     <!-- Compile FSH3D -->
     <mkdir dir="build/classes"/>
-    <!-- Compile FSH3D applets first with javac 1.1 to be able to detect current Java version
-         during applet launch (otherwise Java 1.1 to 1.4 plug-ins refuse to load Applet class) -->
-    <javac srcdir="src" destdir="build/classes"
-           includes="com/eteks/sweethome3d/applet/SweetHome3D*.java"
-           encoding="ISO-8859-1" target="${appletClassTarget}" source="${appletClassSource}"
-           debug="false" debuglevel="lines,vars,source"/>
+    <!-- Applet classes excluded: JApplet removed in Java 11+, not needed for desktop -->
     <!-- Compile other classes -->
     <javac srcdir="src" destdir="build/classes"
            encoding="ISO-8859-1" target="${classTarget}" source="${classSource}"
@@ -89,6 +84,7 @@
         <pathelement location="libtest/javaAwtDesktop.jar"/>
         <pathelement location="libtest/jnlp.jar"/>
       </classpath>
+      <exclude name="com/eteks/sweethome3d/applet/**"/>
     </javac>
 
     <!-- Copy resources excepted furniture, textures and help files -->
