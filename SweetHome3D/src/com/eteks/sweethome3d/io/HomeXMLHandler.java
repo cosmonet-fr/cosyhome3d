@@ -76,7 +76,7 @@ import com.eteks.sweethome3d.tools.ResourceURLContent;
 import com.eteks.sweethome3d.tools.URLContent;
 
 /**
- * SAX handler for Sweet Home 3D XML stream. Read home should respect the following DTD:<pre>
+ * SAX handler for FSH3D XML stream. Read home should respect the following DTD:<pre>
  * &lt;!ELEMENT home (property*, furnitureVisibleProperty*, environment?, backgroundImage?, print?, compass?, (camera | observerCamera)*, level*,
  *       (pieceOfFurniture | doorOrWindow | furnitureGroup | light)*, wall*, room*, polyline*, dimensionLine*, label*)>
  * &lt;!ATTLIST home

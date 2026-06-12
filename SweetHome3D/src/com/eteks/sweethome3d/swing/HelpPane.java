@@ -82,7 +82,7 @@ import com.eteks.sweethome3d.viewcontroller.HelpController;
 import com.eteks.sweethome3d.viewcontroller.HelpView;
 
 /**
- * A pane displaying Sweet Home 3D help.
+ * A pane displaying FSH3D help.
  * @author Emmanuel Puybaret
  */
 public class HelpPane extends JRootPane implements HelpView {

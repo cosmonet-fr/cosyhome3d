@@ -115,11 +115,11 @@ public abstract class HomeApplication {
   public abstract UserPreferences getUserPreferences();
   
   /**
-   * Returns the name of this application. Default implementation returns <i>Sweet Home 3D</i>. 
+   * Returns the name of this application. Default implementation returns <i>FSH3D</i>. 
    * @since 1.6
    */
   public String getName() {
-    return "Sweet Home 3D";
+    return "FSH3D";
   }
   
   /**

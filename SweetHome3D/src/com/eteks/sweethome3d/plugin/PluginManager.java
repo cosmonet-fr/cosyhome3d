@@ -60,7 +60,7 @@ import com.eteks.sweethome3d.tools.OperatingSystem;
 import com.eteks.sweethome3d.viewcontroller.HomeController;
 
 /**
- * Sweet Home 3D plug-ins manager.
+ * FSH3D plug-ins manager.
  * @author Emmanuel Puybaret
  */
 public class PluginManager {

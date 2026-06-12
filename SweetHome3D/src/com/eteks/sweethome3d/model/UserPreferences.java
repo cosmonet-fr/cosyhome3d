@@ -154,7 +154,7 @@ public abstract class UserPreferences {
     this.supportedLanguages = DEFAULT_SUPPORTED_LANGUAGES;
     this.defaultCountry = Locale.getDefault().getCountry();
     String defaultLanguage = Locale.getDefault().getLanguage();
-    // Find closest language among supported languages in Sweet Home 3D
+    // Find closest language among supported languages in FSH3D
     // For example, use simplified Chinese even for Chinese users (zh_?) not from China (zh_CN)
     // unless their exact locale is supported as in Taiwan (zh_TW)
     for (String supportedLanguage : this.supportedLanguages) {
@@ -344,14 +344,14 @@ public abstract class UserPreferences {
   }
 
   /**
-   * Returns the array of default available languages in Sweet Home 3D.
+   * Returns the array of default available languages in FSH3D.
    */
   public String [] getDefaultSupportedLanguages() {
     return DEFAULT_SUPPORTED_LANGUAGES.clone();
   }
 
   /**
-   * Returns the array of available languages in Sweet Home 3D including languages in libraries.
+   * Returns the array of available languages in FSH3D including languages in libraries.
    * @since 3.4
    */
   public String [] getSupportedLanguages() {
@@ -359,7 +359,7 @@ public abstract class UserPreferences {
   }
 
   /**
-   * Sets the available languages in Sweet Home 3D.
+   * Sets the available languages in FSH3D.
    * @since 3.4
    */
   protected void setSupportedLanguages(String [] supportedLanguages) {

@@ -20,7 +20,7 @@
 package com.eteks.sweethome3d.model;
 
 /**
- * A library able to provide additional capabilities to Sweet Home 3D.  
+ * A library able to provide additional capabilities to FSH3D.  
  * @author Emmanuel Puybaret
  * @since 4.0
  */

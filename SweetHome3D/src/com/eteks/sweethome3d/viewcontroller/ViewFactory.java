@@ -27,7 +27,7 @@ import com.eteks.sweethome3d.model.Home;
 import com.eteks.sweethome3d.model.UserPreferences;
 
 /**
- * A factory that specifies how to create the views displayed in Sweet Home 3D.
+ * A factory that specifies how to create the views displayed in FSH3D.
  * @author Emmanuel Puybaret
  */
 public interface ViewFactory {
@@ -220,7 +220,7 @@ public interface ViewFactory {
                                              VideoController videoController);
 
   /**
-   * Returns a new view that displays Sweet Home 3D help.
+   * Returns a new view that displays FSH3D help.
    */
   public abstract HelpView createHelpView(UserPreferences preferences,
                                           HelpController helpController);

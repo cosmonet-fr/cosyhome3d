@@ -792,7 +792,7 @@ public class AppletApplication extends HomeApplication {
     }
 
     if (!serviceManagerAvailable) {
-      // Create JNLP services required by Sweet Home 3D
+      // Create JNLP services required by FSH3D
       ServiceManager.setServiceManagerStub(
           new StandaloneServiceManager(applet.getAppletContext(), codeBase));
       // Caution: setting a new service manager stub won't replace the existing one

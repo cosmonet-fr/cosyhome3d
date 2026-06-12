@@ -213,7 +213,7 @@ public abstract class HomeObject implements Serializable, Cloneable {
   /**
    * Sets the value of a property associated with this object. Once the property is updated,
    * listeners added to this object will receive a change event of {@link PropertyChangeEvent} class.<br>
-   * To avoid any issue with existing or future properties of Sweet Home 3D classes,
+   * To avoid any issue with existing or future properties of FSH3D classes,
    * do not use property names written with only upper case letters.
    * @param name   the name of the property to set
    * @param value  the new value of the property or <code>null</code> to remove an existing property
@@ -225,7 +225,7 @@ public abstract class HomeObject implements Serializable, Cloneable {
   /**
    * Sets the property associated with this object. Once the property is updated,
    * listeners added to this object will receive a change event of {@link PropertyChangeEvent} class.<br>
-   * To avoid any issue with existing or future properties of Sweet Home 3D classes,
+   * To avoid any issue with existing or future properties of FSH3D classes,
    * do not use property names written with only upper case letters.
    * @param name   the name of the property to set
    * @param value  the new value of the property or <code>null</code> to remove an existing property

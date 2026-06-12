@@ -196,7 +196,7 @@ public interface HomeView extends View {
 
   /**
    * Displays a dialog that let user choose whether he wants to save
-   * a home that was created with a newer version of Sweet Home 3D.
+   * a home that was created with a newer version of FSH3D.
    * @return <code>true</code> if user confirmed to save.
    */
   public abstract boolean confirmSaveNewerHome(String homeName);

@@ -21,7 +21,7 @@ package com.eteks.sweethome3d.viewcontroller;
 
 
 /**
- * A view that displays Sweet Home 3D help.
+ * A view that displays FSH3D help.
  * @author Emmanuel Puybaret
  */
 public interface HelpView extends View {

@@ -390,7 +390,7 @@ public class UserPreferencesPanelTest extends TestCase {
 
     for (String language : preferences.getSupportedLanguages()) {
       preferences.setLanguage(language);
-      // Instantiate all views available in Sweet Home 3D
+      // Instantiate all views available in FSH3D
       HomeController homeController = new HomeController(home, preferences, viewFactory, contentManager);
       homeController.getView();
       preferences.setFurnitureCatalogViewedInTree(false);

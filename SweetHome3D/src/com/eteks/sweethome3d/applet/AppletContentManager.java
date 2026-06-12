@@ -52,7 +52,7 @@ import com.eteks.sweethome3d.viewcontroller.View;
 import com.eteks.sweethome3d.viewcontroller.ViewFactory;
 
 /**
- * Content manager for Sweet Home 3D files stored on server.
+ * Content manager for FSH3D files stored on server.
  * @author Emmanuel Puybaret
  */
 public class AppletContentManager extends FileContentManager {

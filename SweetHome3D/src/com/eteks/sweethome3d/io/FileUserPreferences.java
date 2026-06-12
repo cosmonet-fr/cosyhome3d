@@ -1366,7 +1366,7 @@ public class FileUserPreferences extends UserPreferences {
   }
 
   /**
-   * Returns the first Sweet Home 3D application folder.
+   * Returns the first FSH3D application folder.
    */
   public File getApplicationFolder() throws IOException {
     File [] applicationFolders = getApplicationFolders();
@@ -1378,7 +1378,7 @@ public class FileUserPreferences extends UserPreferences {
   }
 
   /**
-   * Returns Sweet Home 3D application folders.
+   * Returns FSH3D application folders.
    * Caution : This method can be called from constructor so overriding implementations
    * shouldn't be based on the state of their fields.
    */
@@ -1391,7 +1391,7 @@ public class FileUserPreferences extends UserPreferences {
   }
 
   /**
-   * Returns subfolders of Sweet Home 3D application folders of a given name.
+   * Returns subfolders of FSH3D application folders of a given name.
    * Caution : This method can be called from constructor so overriding implementations
    * shouldn't be based on the state of their fields.
    */

@@ -101,12 +101,12 @@ import com.eteks.sweethome3d.viewcontroller.View;
 import com.eteks.sweethome3d.viewcontroller.ViewFactory;
 
 /**
- * Sweet Home 3D main class. Sweet Home 3D accepts the parameter
- * <code>-open</code> followed by the path of a Sweet Home 3D file.<br>
+ * FSH3D main class. FSH3D accepts the parameter
+ * <code>-open</code> followed by the path of a FSH3D file.<br>
  * Users may also define the optional following System properties to alter program behavior:
  *
  * <ul><li><code>com.eteks.sweethome3d.applicationFolders</code> defines the folder(s) where private files
- * of Sweet Home 3D are stored. Private files include SH3F furniture library files stored in a subfolder named
+ * of FSH3D are stored. Private files include SH3F furniture library files stored in a subfolder named
  * <code>furniture</code>, SH3T textures library files stored in a subfolder named <code>textures</code>,
  * SH3L language library files stored in a subfolder named <code>languages</code>, SH3P application plug-in
  * files stored in a subfolder named <code>plugins</code> and SH3D files automatically created for recovery
@@ -117,7 +117,7 @@ import com.eteks.sweethome3d.viewcontroller.ViewFactory;
  * Thus the user should have write access rights on this first folder otherwise he won't be able to import
  * SH3F, SH3T, SH3L or SH3P files, and auto recovered SH3D files won't be managed. If this folder or
  * one of its <code>furniture</code>, <code>textures</code>, <code>languages</code>, <code>plugins</code>,
- * <code>recovery</code> subfolders don't exist, Sweet Home 3D will create it when needed.<br>
+ * <code>recovery</code> subfolders don't exist, FSH3D will create it when needed.<br>
  * The other folders are used as resources where SH3F, SH3T, SH3L, SH3P files will be searched
  * in their respective <code>furniture</code>, <code>textures</code>, <code>languages</code>, <code>plugins</code>
  * subfolders. Any of the cited folders may be an absolute path or a relative path to the folder
@@ -129,12 +129,12 @@ import com.eteks.sweethome3d.viewcontroller.ViewFactory;
  * and the files he imported in furniture and textures catalogs. This folder may be the same as the
  * folder cited in <code>com.eteks.sweethome3d.applicationFolders</code> property.</li>
  *
- * <li><code>com.eteks.sweethome3d.singleInstance</code> can be set to <code>false</code> to prevent Sweet Home 3D
+ * <li><code>com.eteks.sweethome3d.singleInstance</code> can be set to <code>false</code> to prevent FSH3D
  * from running as a single instance under operating systems different from Mac OS X. By default, it will try to
  * run as a single instance when possible.
  *
  * <li><code>com.eteks.sweethome3d.checkUpdates</code> should be set to <code>false</code>
- * if application and library updates shouldn't be checked in Sweet Home 3D.
+ * if application and library updates shouldn't be checked in FSH3D.
  *
  * <li><code>com.eteks.sweethome3d.resolutionScale</code> can be set to a decimal value different from 1 to enlarge
  * or reduce user interface elements with a given factor. For example, <code>1.2</code> will make them look 20% larger.
@@ -143,19 +143,19 @@ import com.eteks.sweethome3d.viewcontroller.ViewFactory;
  * furniture list to CVS text files.</li>
  *
  * <li><code>com.eteks.sweethome3d.no3D</code> should be set to <code>true</code>
- * if 3D capabilities (including 3D view and importing furniture 3D models) shouldn't be used in Sweet Home 3D.
+ * if 3D capabilities (including 3D view and importing furniture 3D models) shouldn't be used in FSH3D.
  *
  * <li><code>com.eteks.sweethome3d.j3d.checkOffScreenSupport</code> should be set to <code>false</code>
- * when editing preferences, printing, creating a photo or creating a video always lead to a crash of Sweet Home 3D.
- * This means offscreen 3D images isn't supported by your video driver and Sweet Home 3D doesn't even succeed
+ * when editing preferences, printing, creating a photo or creating a video always lead to a crash of FSH3D.
+ * This means offscreen 3D images isn't supported by your video driver and FSH3D doesn't even succeed
  * to test this support. Setting this System property to <code>false</code> disables this test.</li>
  *
- * <li><code>com.eteks.sweethome3d.j3d.useOffScreen3DView</code> can be set to <code>true</code> to force Sweet Home 3D
+ * <li><code>com.eteks.sweethome3d.j3d.useOffScreen3DView</code> can be set to <code>true</code> to force FSH3D
  * to use offscreen view for its 3D view and other 3D panels displayed at screen.</li>
  *
  * <li><code>com.eteks.sweethome3d.j3d.additionalLoaderClasses</code> defines additional Java 3D
- * {@linkplain com.sun.j3d.loaders.Loader loader} classes that Sweet Home 3D will use to read 3D models content
- * at formats not supported by default in Sweet Home 3D.<br>
+ * {@linkplain com.sun.j3d.loaders.Loader loader} classes that FSH3D will use to read 3D models content
+ * at formats not supported by default in FSH3D.<br>
  * The classes cited in this property must be available in the classpath and if more than one class is
  * cited, they should be separated by a colon or a space.</li></ul>
  *
@@ -318,7 +318,7 @@ public class SweetHome3D extends HomeApplication {
   }
 
   /**
-   * Returns Sweet Home 3D application read from resources.
+   * Returns FSH3D application read from resources.
    */
   @Override
   public String getId() {
@@ -379,7 +379,7 @@ public class SweetHome3D extends HomeApplication {
   }
 
   /**
-   * Sweet Home 3D entry point.
+   * FSH3D entry point.
    * @param args may contain one .sh3d, .sh3x, .sh3f, .sh3t, .sh3l or .sh3p file to open or install,
    *          following a <code>-open</code> option.
    */
@@ -393,7 +393,7 @@ public class SweetHome3D extends HomeApplication {
   protected void init(final String [] args) {
     initSystemProperties();
 
-    // If Sweet Home 3D is launched from outside of Java Web Start
+    // If FSH3D is launched from outside of Java Web Start
     if (ServiceManager.getServiceNames() == null) {
       // Try to call single instance server
       if (Boolean.parseBoolean(System.getProperty("com.eteks.sweethome3d.singleInstance", "true"))
@@ -403,7 +403,7 @@ public class SweetHome3D extends HomeApplication {
       } else {
         // Display splash screen
         SwingTools.showSplashScreenWindow(SweetHome3D.class.getResource("resources/splashScreen.jpg"));
-        // Create JNLP services required by Sweet Home 3D
+        // Create JNLP services required by FSH3D
         ServiceManager.setServiceManagerStub(new StandaloneServiceManager(getClass()));
       }
     }
@@ -872,7 +872,7 @@ public class SweetHome3D extends HomeApplication {
         addHome(createHome());
       }
     } else {
-      // If no Sweet Home 3D frame has focus, bring last created viewed frame to front
+      // If no FSH3D frame has focus, bring last created viewed frame to front
       final List<Home> homes = getHomes();
       Home home = null;
       for (int i = homes.size() - 1; i >= 0; i--) {
@@ -970,7 +970,7 @@ public class SweetHome3D extends HomeApplication {
       try {
         preferences.flush();
       } catch (BackingStoreException ex) {
-        // Ignore exception, Sweet Home 3D will work without recorded directories
+        // Ignore exception, FSH3D will work without recorded directories
       }
     }
   }
@@ -994,7 +994,7 @@ public class SweetHome3D extends HomeApplication {
         return new StandaloneBasicService();
       } else if (name.equals("javax.jnlp.SingleInstanceService")
                  && Boolean.parseBoolean(System.getProperty("com.eteks.sweethome3d.singleInstance", "true"))) {
-        // Create a server that waits for further Sweet Home 3D launches
+        // Create a server that waits for further FSH3D launches
         return new StandaloneSingleInstanceService(this.mainClass);
       } else {
         throw new UnavailableServiceException(name);
@@ -1070,7 +1070,7 @@ public class SweetHome3D extends HomeApplication {
   }
 
   /**
-   * A single instance service server that waits for further Sweet Home 3D
+   * A single instance service server that waits for further FSH3D
    * launches.
    */
   private static class StandaloneSingleInstanceService implements SingleInstanceService {
@@ -1100,17 +1100,17 @@ public class SweetHome3D extends HomeApplication {
     private void launchSingleInstanceServer() {
       final ServerSocket serverSocket;
       try {
-        // Launch a server that waits for other Sweet Home 3D launches
+        // Launch a server that waits for other FSH3D launches
         serverSocket = new ServerSocket(0, 0, InetAddress.getByName("127.0.0.1"));
         // Share server port in preferences
         Preferences preferences = Preferences.userNodeForPackage(this.mainClass);
         preferences.putInt(SINGLE_INSTANCE_PORT, serverSocket.getLocalPort());
         preferences.flush();
       } catch (IOException ex) {
-        // Ignore exception, Sweet Home 3D will work with multiple instances
+        // Ignore exception, FSH3D will work with multiple instances
         return;
       } catch (BackingStoreException ex) {
-        // Ignore exception, Sweet Home 3D will work with multiple instances
+        // Ignore exception, FSH3D will work with multiple instances
         return;
       }
 

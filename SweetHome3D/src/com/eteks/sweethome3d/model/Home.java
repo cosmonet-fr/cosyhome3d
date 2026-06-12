@@ -411,7 +411,7 @@ public class Home implements Serializable, Cloneable {
     // Create a default top camera that matches default point of view
     this.topCamera = new Camera(HOME_TOP_CAMERA_ID, 50, 1050, 1010,
         (float)Math.PI, (float)Math.PI / 4, (float)Math.PI * 63 / 180);
-    // Create a default observer camera (use a 63° field of view equivalent to a 35mm lens for a 24x36 film)
+    // Create a default observer camera (use a 63ï¿½ field of view equivalent to a 35mm lens for a 24x36 film)
     this.observerCamera = new ObserverCamera(HOME_OBSERVER_CAMERA_ID, 50, 50, 170,
         7 * (float)Math.PI / 4, (float)Math.PI / 16, (float)Math.PI * 63 / 180);
     this.storedCameras = Collections.emptyList();
@@ -1868,7 +1868,7 @@ public class Home implements Serializable, Cloneable {
    * Sets a property associated with this home. Once the property is updated,
    * listeners added to this home will receive a change event of
    * {@link PropertyChangeEvent} class.<br>
-   * To avoid any issue with existing or future properties of Sweet Home 3D classes,
+   * To avoid any issue with existing or future properties of FSH3D classes,
    * do not use property names written with only upper case letters.
    * @param name   the name of the property to set
    * @param value  the new value of the property
@@ -1942,8 +1942,8 @@ public class Home implements Serializable, Cloneable {
   /**
    * Returns the version of this home, the last time it was serialized or
    * or {@link #CURRENT_VERSION} if it is not serialized yet or
-   * was serialized with Sweet Home 3D 0.x.
-   * Version is useful to know with which Sweet Home 3D version this home was saved
+   * was serialized with FSH3D 0.x.
+   * Version is useful to know with which FSH3D version this home was saved
    * and warn user that he may lose information if he saves with
    * current application a home created by a more recent version.
    */

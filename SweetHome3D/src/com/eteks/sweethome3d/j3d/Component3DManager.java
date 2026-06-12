@@ -173,7 +173,7 @@ public class Component3DManager {
       this.renderingErrorObserver = observer;
     } catch (ClassNotFoundException ex) {
       // As RenderingErrorListener and addRenderingErrorListener are available since Java 3D 1.5,
-      // use the default rendering error reporting if Sweet Home 3D is linked to a previous version
+      // use the default rendering error reporting if FSH3D is linked to a previous version
     }
   }
 
