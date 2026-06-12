@@ -1,0 +1,22 @@
+# Build output
+SweetHome3D/install/
+SweetHome3D/deploy/
+FurnitureLibraryEditor/install/
+TexturesLibraryEditor/install/
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.eclipse/
+.settings/
+.classpath.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Ant
+build/
