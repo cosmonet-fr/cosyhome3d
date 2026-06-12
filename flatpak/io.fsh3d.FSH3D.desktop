@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=FSH3D
+GenericName=Interior Design
+Comment=Free interior design application - Fork of Sweet Home 3D
+Exec=fsh3d %f
+Icon=io.fsh3d.FSH3D
+Terminal=false
+Type=Application
+Categories=Graphics;2DGraphics;3DGraphics;
+MimeType=application/x-sh3d;application/x-sh3f;
+StartupWMClass=com-eteks-sweethome3d-SweetHome3D
+Keywords=interior;design;floor;plan;3D;
