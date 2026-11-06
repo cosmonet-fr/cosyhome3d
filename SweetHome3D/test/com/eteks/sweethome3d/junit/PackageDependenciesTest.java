@@ -28,7 +28,7 @@ import jdepend.framework.PackageFilter;
 import junit.framework.TestCase;
 
 /**
- * Tests if dependencies between FSH3D packages are met.
+ * Tests if dependencies between Cosy Home 3D packages are met.
  * @author Emmanuel Puybaret
  */
 public class PackageDependenciesTest extends TestCase {
@@ -46,7 +46,7 @@ public class PackageDependenciesTest extends TestCase {
     jdepend.addDirectory("classes");
 
     DependencyConstraint constraint = new DependencyConstraint();
-    // FSH3D packages
+    // Cosy Home 3D packages
     JavaPackage sweetHome3DModel = constraint.addPackage("com.eteks.sweethome3d.model");
     JavaPackage sweetHome3DTools = constraint.addPackage("com.eteks.sweethome3d.tools");
     JavaPackage sweetHome3DPlugin = constraint.addPackage("com.eteks.sweethome3d.plugin");

@@ -5,7 +5,7 @@ import props
 
 SRC = os.path.join(os.path.dirname(__file__), '..', 'SweetHome3D', 'src', 'com', 'eteks', 'sweethome3d')
 
-ABOUT_EN = r'''<html><font face="sans-serif"><center><font size="+2"><b>FSH3D</b></font>\
+ABOUT_EN = r'''<html><font face="sans-serif"><center><font size="+2"><b>Cosy Home 3D</b></font>\
     <br><b>Version %1$s</b>\
     <p><font size="-1">%4$s version %2$s<br>provided by %5$s\
     <br>Java 3D version %3$s\
@@ -14,13 +14,13 @@ ABOUT_EN = r'''<html><font face="sans-serif"><center><font size="+2"><b>FSH3D</b
     <br>SVG path compilation provided by <a href="https://xmlgraphics.apache.org/batik/">Batik</a>\
     <br>Math expressions support provided by JeksParser\
     <br>Photo rendering provided by SunFlow and <a href="https://github.com/YafaRay">YafaRay</a></font></p>\
-    <p>FSH3D is a fork of Sweet Home 3D 7.5,\
+    <p>Cosy Home 3D is a fork of Sweet Home 3D 7.5,\
     <br>created by Emmanuel Puybaret.</p>\
     <p><font size="-2">\u00a9 Copyright 2026 Stéphane BILLOIS\
     <br>Original code \u00a9 Copyright 2024 Space Mushrooms\
     <br>Distributed under <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public License</a></font></p>'''
 
-ABOUT_FR = r'''<html><font face="sans-serif"><center><font size="+2"><b>FSH3D</b></font>\
+ABOUT_FR = r'''<html><font face="sans-serif"><center><font size="+2"><b>Cosy Home 3D</b></font>\
     <br><b>Version %1$s</b>\
     <p><font size="-1">%4$s version %2$s<br>fourni par %5$s\
     <br>Java 3D version %3$s\
@@ -29,9 +29,9 @@ ABOUT_FR = r'''<html><font face="sans-serif"><center><font size="+2"><b>FSH3D</b
     <br>Compilation des chemins SVG fournie par <a href="https://xmlgraphics.apache.org/batik/">Batik</a>\
     <br>Calcul des expressions math\u00e9matiques fourni par JeksParser\
     <br>Rendu photo fourni par SunFlow et <a href="https://github.com/YafaRay">YafaRay</a></font></p>\
-    <p>FSH3D est un fork de Sweet Home 3D 7.5,\
+    <p>Cosy Home 3D est un fork de Sweet Home 3D 7.5,\
     <br>cr\u00e9\u00e9 par Emmanuel Puybaret.</p>\
-    <p><font size="-2">\u00a9 Copyright 2026 contributeurs FSH3D\
+    <p><font size="-2">\u00a9 Copyright 2026 St\u00e9phane BILLOIS\
     <br>Code d'origine \u00a9 Copyright 2024 Space Mushrooms\
     <br>Distribu\u00e9 sous licence <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU General Public License</a></font></p>'''
 

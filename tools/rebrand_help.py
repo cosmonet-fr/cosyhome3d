@@ -1,4 +1,4 @@
-"""Renomme Sweet Home 3D en FSH3D dans l'aide HTML intégrée et retire les liens vers leur site.
+"""Renomme Sweet Home 3D en Cosy Home 3D dans l'aide HTML intégrée et retire les liens vers leur site.
 
 Travaille octet par octet (latin-1 sans perte) pour préserver l'encodage de chaque langue.
 """
@@ -27,7 +27,7 @@ def process(text, name):
         return inner
     text = re.sub(r'<a\s+href="' + SITE + r'">(.*?)</a>', unlink, text, flags=re.S | re.I)
     parts = text.split(KEEP)
-    parts = [re.sub(r'3D Sweet Home|Sweet\s+Home(?:(?:\s|&nbsp;)+3D)?', 'FSH3D', p) for p in parts]
+    parts = [re.sub(r'3D Sweet Home|Sweet\s+Home(?:(?:\s|&nbsp;)+3D)?', 'Cosy Home 3D', p) for p in parts]
     return KEEP.join(parts)
 
 def main():

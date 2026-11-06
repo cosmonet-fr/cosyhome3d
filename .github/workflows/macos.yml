@@ -1,0 +1,50 @@
+# Builds Cosy Home 3D for macOS Apple Silicon (arm64) on GitHub macOS runners.
+# The DMG is available in the "Artifacts" section of each run, and attached to
+# a GitHub release when a tag starting with v is pushed (for example v0.1.1).
+name: macOS build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  macos-arm64:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Install Apache Ant
+        run: |
+          curl -fsSL -o ant.tar.gz https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.15-bin.tar.gz
+          echo "d78427aff207592c024ff1552dc04f7b57065a195c42d398fcffe7a0145e8d00cd46786f5aa52e77ab0fdf81334f065eb8011eecd2b48f7228e97ff4cb20d16c  ant.tar.gz" | shasum -a 512 -c -
+          tar xzf ant.tar.gz
+          echo "$PWD/apache-ant-1.10.15/bin" >> "$GITHUB_PATH"
+
+      - name: Build executable jar
+        working-directory: SweetHome3D
+        run: ant jarExecutable
+
+      - name: Build application and DMG
+        run: sh tools/macos/package_macos.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CosyHome3D-macos-arm64
+          path: dist/*.dmg
+
+      - name: Attach DMG to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.dmg
+          prerelease: true

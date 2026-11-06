@@ -1,28 +1,37 @@
-FSH3D - Notes de version
-========================
+Cosy Home 3D - Notes de version
+===============================
 
-FSH3D est un fork de Sweet Home 3D 7.5 (SVN r9047, avril 2025), créé par
-Emmanuel Puybaret et distribué sous licence GNU GPL v2 ou ultérieure.
+Cosy Home 3D est un fork de Sweet Home 3D 7.5 (SVN r9047, avril 2025), créé
+par Emmanuel Puybaret et distribué sous licence GNU GPL v2 ou ultérieure.
 Ce fichier liste toutes les modifications apportées depuis le fork.
 
 
-0.1 (pré-alpha) - en cours
---------------------------
+0.1.1 (alpha) - en cours
+------------------------
 
 Nom et identité
 
-- L'application s'appelle FSH3D partout : titres de fenêtres, menus, boîtes de
+- Le projet s'appelle désormais Cosy Home 3D (nom de travail précédent :
+  FSH3D). Le nom apparaît partout : titres de fenêtres, menus, boîtes de
   dialogue, aide intégrée (17 langues), installeurs, Flatpak, Javadoc.
-- Nouvelle icône et nouvel écran de démarrage provisoires, style plan
-  d'architecte bleu. Sources SVG et script de génération dans branding/.
+  Identifiant Flatpak et macOS : org.cosyhome3d.CosyHome3D (en .org, le
+  plus courant pour un logiciel libre ; le domaine cosyhome3d.org n'est pas
+  encore réservé, il le faudra pour publier sur Flathub).
+- Nouvelle icône provisoire (maison et "3D" sur plan d'architecte bleu), en
+  trois variantes selon la taille (16 px, 22 à 48 px, 64 px et plus) pour
+  rester nette dans les lanceurs. Le Flatpak installe toutes les tailles
+  standard de 16 à 512 px, plus la version vectorielle.
+- Nouvel écran de démarrage provisoire. Sources SVG et script de génération
+  dans branding/.
 - Boîte "A propos" réécrite (anglais et français) : mention du fork, de
-  l'auteur d'origine et des deux copyrights. Les traductions obsolètes de ce
-  message (bulgare, grec, russe, chinois) affichent désormais l'anglais.
+  l'auteur d'origine, des deux copyrights, de FlatLaf et des icônes Breeze.
+  Les traductions obsolètes de ce message (bulgare, grec, russe, chinois)
+  affichent désormais l'anglais.
 - Liens vers sweethome3d.com retirés des menus, de l'aide et des assistants
   d'import. Les boutons "Trouver des modèles", "Trouver des textures" et
-  "Plus d'exemples" sont masqués en attendant un site FSH3D.
-- Numérotation propre au fork : la version affichée passe à 0.1. Le numéro
-  interne de format de fichier (Home.CURRENT_VERSION) est inchangé.
+  "Plus d'exemples" sont masqués en attendant un site Cosy Home 3D.
+- Numérotation propre au fork : la version affichée est 0.1.1 (alpha). Le
+  numéro interne de format de fichier (Home.CURRENT_VERSION) est inchangé.
 
 Conservé volontairement pour la licence et la compatibilité
 
@@ -38,9 +47,20 @@ Thèmes
 - Le thème sombre est construit sur le bleu du logo plutôt que sur un gris
   neutre. Le plan y prend l'aspect d'un plan d'architecte (fond bleu nuit,
   traits clairs).
-- Par défaut, FSH3D suit le mode clair ou sombre du système : portail XDG
-  (GNOME, KDE, y compris dans le Flatpak), réglages GNOME ou KDE, macOS et
-  Windows.
+- En thème sombre, la vue 3D affiche le sol et le ciel par défaut en gris
+  foncé, et les flèches de navigation en bleu (#54a3d8). Seul l'affichage
+  change : les couleurs choisies dans un projet sont respectées et le fichier
+  n'est pas modifié. Les photos et vidéos gardent les vraies couleurs.
+  Limite connue : en sombre, la vue 3D ne montre donc pas exactement le sol
+  par défaut qui apparaîtra sur les photos (gris moyen).
+- Icônes des barres d'outils et des menus reprises du thème Breeze de KDE
+  (70 icônes), en version claire ou sombre selon le thème. Une icône
+  "Créer des murs" provisoire a été dessinée dans le même style. Les icônes
+  sans équivalent gardent leur dessin d'origine. Le thème Classique garde
+  toutes les icônes d'origine.
+- Par défaut, Cosy Home 3D suit le mode clair ou sombre du système : portail
+  XDG (GNOME, KDE, y compris dans le Flatpak), réglages GNOME ou KDE, macOS
+  et Windows.
 - Nouveau réglage "Thème" dans les préférences : Comme le système, Clair,
   Sombre, Classique (ancienne apparence, celle du système). Le changement
   s'applique au prochain démarrage.
@@ -65,11 +85,11 @@ Sécurité
 
 Données et préférences
 
-- FSH3D utilise ses propres préférences (nœud Java /fsh3d) et ses propres
-  dossiers de données (~/.local/share/fsh3d sous Linux, dossier FSH3D sous
-  Windows et macOS). Avant, il partageait ceux de Sweet Home 3D, y compris le
-  port de l'instance unique : ouvrir un fichier dans FSH3D pouvait l'envoyer
-  à Sweet Home 3D s'il était déjà lancé.
+- Cosy Home 3D utilise ses propres préférences (nœud Java /cosyhome3d) et
+  ses propres dossiers de données (~/.local/share/cosyhome3d sous Linux,
+  dossier "Cosy Home 3D" sous Windows et macOS). Avant le fork, il
+  partageait ceux de Sweet Home 3D, y compris le port de l'instance unique :
+  ouvrir un fichier pouvait l'envoyer à Sweet Home 3D s'il était déjà lancé.
 - Conséquence : au premier lancement, les préférences sont vierges et les
   meubles importés dans Sweet Home 3D ne sont pas repris.
 
@@ -77,15 +97,49 @@ Compilation et paquets
 
 - Compilation possible avec Java 11 et plus (classes applet exclues, JApplet
   ayant disparu de Java 11).
-- Paquet Flatpak io.fsh3d.FSH3D (runtime freedesktop 24.08, OpenJDK 21),
-  icônes 32 à 512 px et SVG, licence déclarée GPL-2.0-or-later.
+- Paquet Flatpak org.cosyhome3d.CosyHome3D (runtime freedesktop 24.08,
+  OpenJDK 21), licence déclarée GPL-2.0-or-later.
 - Avertissement d'accès natif de JOGL supprimé au lancement
   (--enable-native-access).
-- Installeurs Linux, macOS et Windows remis en cohérence avec build.xml
-  (fichiers renommés FSH3D, identifiant macOS io.fsh3d.FSH3D).
+- Installeurs Linux, macOS et Windows remis en cohérence avec build.xml.
+- Nouvelle version macOS Apple Silicon (arm64) : script
+  tools/macos/package_macos.sh (jpackage, environnement Java embarqué, image
+  DMG) et compilation automatique sur les machines macOS de GitHub
+  (.github/workflows/macos.yml). L'application n'est signée qu'en local
+  ("ad hoc", sans compte développeur Apple) : macOS demande une confirmation
+  au premier lancement.
+- Le dépôt contient tout ce qu'il faut pour compiler : bibliothèques de lib/,
+  icônes Breeze déjà converties, images de marque. Ni Breeze, ni Inkscape ne
+  sont nécessaires sur la machine qui compile ; seuls les scripts de
+  régénération des images (branding/generate.sh, tools/import_breeze_icons.sh)
+  en ont besoin. Vérifié en compilant une copie propre du dépôt.
 - Les bibliothèques de lib/ et les modèles d'installeurs sont désormais suivis
   par git (ils étaient exclus par erreur du dépôt, qui ne compilait pas après
   un clone).
+
+Crédits ajoutés
+
+- FlatLaf, FormDev Software GmbH, licence Apache 2.0
+  (THIRDPARTY-LICENSE-FLATLAF.TXT).
+- Icônes Breeze, Uri Herrera, KDE Visual Design Group et contributeurs KDE,
+  licence LGPL 3 ou ultérieure (THIRDPARTY-LICENSE-BREEZE.TXT, notice
+  COPYING-ICONS.TXT dans les dossiers d'icônes, SVG sources dans
+  branding/breeze).
+
+Licences
+
+- Le code source reste sous licence GNU GPL v2 ou ultérieure, comme Sweet
+  Home 3D : chaque fichier le dit, et ça ne change pas.
+- Deux composants ajoutés ne sont compatibles qu'avec la GPL v3 : FlatLaf
+  (Apache 2.0) et les icônes Breeze (LGPL 3 ou ultérieure). L'application
+  compilée et ses paquets (jar, Flatpak, DMG) qui les incluent sont donc
+  distribués sous GPL v3, ce que permet la mention "ou ultérieure".
+  Concrètement : rien à changer dans les fichiers, mais quiconque redistribue
+  les paquets doit respecter la GPL v3. Une version sans FlatLaf ni Breeze
+  pourrait encore être distribuée sous GPL v2.
+- Composant non libre hérité de Sweet Home 3D : JMF (export vidéo), sous
+  licence binaire de Sun. A remplacer avant une publication sur Flathub ou
+  dans une distribution Linux.
 
 Restes à traiter
 
@@ -93,6 +147,16 @@ Restes à traiter
   encore renommés.
 - Code applet et Java Web Start (deploy/) obsolète, à supprimer.
 - Bibliothèques anciennes : iText 2.1.7 (à remplacer par OpenPDF), JMF 2.1.1e
-  (abandonné depuis 2003).
+  (abandonné depuis 2003, non libre), bibliothèques natives Java3D/JOGL et
+  YafaRay à mettre à jour.
+- Plugins .sh3p : ils exécutent du code avec les droits de l'utilisateur,
+  sans avertissement clair à l'installation.
+- Serveur "instance unique" : écoute sur un port local sans authentification,
+  tout programme local peut lui demander d'ouvrir un fichier ; un message vide
+  l'arrête. Prévoir un jeton secret.
+- Version macOS : à tester sur un vrai Mac (3D, rendu photo, association des
+  fichiers .sh3d). Pas de version Intel ni Windows automatisée pour l'instant.
 - Permissions Flatpak à restreindre (--filesystem=home, réseau).
-- Thème testé sous Linux (KDE) uniquement, pas encore sous macOS ni Windows.
+- Thèmes testés sous Linux (KDE) uniquement, pas encore sous macOS ni Windows.
+- Icônes à reprendre par une graphiste, notamment celles sans équivalent
+  Breeze (murs, magnétisme, vues 3D, modifications).

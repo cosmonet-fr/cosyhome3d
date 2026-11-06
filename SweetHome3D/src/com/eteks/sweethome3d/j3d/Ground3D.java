@@ -240,7 +240,7 @@ public class Ground3D extends Object3DBranch {
     final Appearance groundAppearance = groundShape.getAppearance();
     HomeTexture groundTexture = home.getEnvironment().getGroundTexture();
     if (groundTexture == null) {
-      int groundColor = home.getEnvironment().getGroundColor();
+      int groundColor = getDisplayedGroundColor(home.getEnvironment().getGroundColor());
       groundAppearance.setMaterial(getMaterial(groundColor, groundColor, 0));
       groundAppearance.setTexture(null);
       groundAppearance.getTransparencyAttributes().setTransparencyMode(TransparencyAttributes.NONE);
@@ -605,5 +605,14 @@ public class Ground3D extends Object3DBranch {
     public Area getUpperLevelArea() {
       return this.upperLevelArea;
     }
+  }
+
+  /**
+   * Returns the color used to display the given ground color.
+   * This method returns <code>groundColor</code> and may be overridden
+   * to adapt the color to the user interface theme.
+   */
+  protected int getDisplayedGroundColor(int groundColor) {
+    return groundColor;
   }
 }

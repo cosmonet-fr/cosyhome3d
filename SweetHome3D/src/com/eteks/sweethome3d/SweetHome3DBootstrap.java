@@ -43,7 +43,7 @@ import javax.swing.JOptionPane;
 import com.eteks.sweethome3d.tools.ExtensionsClassLoader;
 
 /**
- * This bootstrap class loads FSH3D application classes from jars in classpath
+ * This bootstrap class loads Cosy Home 3D application classes from jars in classpath
  * or from extension jars stored as resources.
  * @author Emmanuel Puybaret
  */
@@ -52,7 +52,7 @@ public class SweetHome3DBootstrap {
         InvocationTargetException, NoSuchMethodException, ClassNotFoundException {
     Class<?> sweetHome3DBootstrapClass = SweetHome3DBootstrap.class;
     List<String> extensionJarsAndDlls = new ArrayList<String>(Arrays.asList(new String [] {
-        "batik-svgpathparser-1.7.jar", // Jars included in FSH3D executable jar file
+        "batik-svgpathparser-1.7.jar", // Jars included in Cosy Home 3D executable jar file
         "jeksparser-calculator.jar",
         "iText-2.1.7.jar",
         "freehep-vectorgraphics-svg-2.1.1c.jar",
@@ -73,13 +73,13 @@ public class SweetHome3DBootstrap {
           || operatingSystemVersion.startsWith("10.7");
       if (javaVersion.startsWith("1.6")
           && System.getProperty("com.eteks.sweethome3d.deploymentInformation", "").startsWith("Java Web Start")) {
-        // Refuse to let FSH3D run under Mac OS X with Java Web Start 6
+        // Refuse to let Cosy Home 3D run under Mac OS X with Java Web Start 6
         String message = Locale.getDefault().getLanguage().equals(Locale.FRENCH.getLanguage())
-            ? "FSH3D ne peut pas fonctionner avec Java\n"
+            ? "Cosy Home 3D ne peut pas fonctionner avec Java\n"
               + "Web Start 6 sous Mac OS X de façon fiable.\n"
               + "Merci de télécharger le programme d'installation depuis\n"
               + "http://www.sweethome3d.com/fr/download.jsp"
-            : "FSH3D can't reliably run with Java Web Start 6\n"
+            : "Cosy Home 3D can't reliably run with Java Web Start 6\n"
               + "under Mac OS X.\n"
               + "Please download the installer version from\n"
               + "http://www.sweethome3d.com/download.jsp";
@@ -102,13 +102,13 @@ public class SweetHome3DBootstrap {
       } else if (javaVersion.startsWith("1.6")
                  || javaVersion.startsWith("1.7")
                  || macOSXLionOrInferior) {
-        // Refuse to let FSH3D run under Mac OS X with Java 7
+        // Refuse to let Cosy Home 3D run under Mac OS X with Java 7
         String message = Locale.getDefault().getLanguage().equals(Locale.FRENCH.getLanguage())
-            ? "FSH3D ne peut fonctionner avec Java 6/7 sur votre\n"
+            ? "Cosy Home 3D ne peut fonctionner avec Java 6/7 sur votre\n"
               + "système et requiert Java 8 ou plus. Merci de mettre à jour votre\n"
               + "version de Java ou de télécharger le programme d'installation\n"
               + "depuis http://www.sweethome3d.com/fr/download.jsp"
-            : "FSH3D can't run with Java 6/7 under your system\n"
+            : "Cosy Home 3D can't run with Java 6/7 under your system\n"
               + "and requires Java 8 or above. Please, update you Java version\n"
               + "or download the installer version from\n"
               + "http://www.sweethome3d.com/download.jsp";

@@ -1,19 +1,19 @@
 <!-- installerLaunch4j-x86.xml
 
-     FSH3D, based on Sweet Home 3D, Copyright (c) 2024 Space Mushrooms <info@sweethome3d.com>
+     Cosy Home 3D, based on Sweet Home 3D, Copyright (c) 2024 Space Mushrooms <info@sweethome3d.com>
 
-     FSH3D.exe creator 
+     CosyHome3D.exe creator 
      This script requires launch4j available at http://launch4j.sourceforge.net/     
-     and a FSH3D.ico file containing FSH3D icon.
-     It creates a FSH3D.exe in build directory running with
+     and a CosyHome3D.ico file containing Cosy Home 3D icon.
+     It creates a CosyHome3D.exe in build directory running with
      JRE or OpenJDK stored in runtime subdirectory 
-     + FSH3D.jar, Windows Java 3D DLLs and JARs for Java 3D and other required JARs 
+     + CosyHome3D.jar, Windows Java 3D DLLs and JARs for Java 3D and other required JARs 
        stored in a lib subdirectory -->
 <launch4jConfig>
   <dontWrapJar>true</dontWrapJar>
   <headerType>gui</headerType>
   <jar></jar>
-  <outfile>build\FSH3D-x86.exe</outfile>
+  <outfile>build\CosyHome3D-x86.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -22,10 +22,10 @@
   <supportUrl></supportUrl>
   <customProcName>true</customProcName>
   <stayAlive>false</stayAlive>
-  <icon>FSH3D.ico</icon>
+  <icon>CosyHome3D.ico</icon>
   <classPath>
     <mainClass>com.eteks.sweethome3d.SweetHome3D</mainClass>
-    <cp>lib/FSH3D.jar</cp>
+    <cp>lib/CosyHome3D.jar</cp>
     <cp>lib/Furniture.jar</cp>
     <cp>lib/Textures.jar</cp>
     <cp>lib/Examples.jar</cp>
@@ -51,18 +51,18 @@
     <dontUsePrivateJres>false</dontUsePrivateJres>
     <initialHeapSize>0</initialHeapSize>
     <maxHeapSize>640</maxHeapSize>
-    <opt>-Djava.library.path=lib/java3d-1.6;lib/yafaray -Djogamp.gluegen.UseTempJarCache=false -Dcom.eteks.sweethome3d.applicationId=FSH3D#Installer -Dcom.eteks.sweethome3d.checkUpdates=%HKEY_CLASSES_ROOT\FSH3D\Settings\checkUpdates%</opt>
+    <opt>-Djava.library.path=lib/java3d-1.6;lib/yafaray -Djogamp.gluegen.UseTempJarCache=false -Dcom.eteks.sweethome3d.applicationId=CosyHome3D#Installer -Dcom.eteks.sweethome3d.checkUpdates=%HKEY_CLASSES_ROOT\CosyHome3D\Settings\checkUpdates%</opt>
   </jre>
   <versionInfo>
     <fileVersion>7.5.0.0</fileVersion>
     <txtFileVersion>7.5</txtFileVersion>
-    <fileDescription>FSH3D</fileDescription>
+    <fileDescription>Cosy Home 3D</fileDescription>
     <copyright>Copyright (c) 2026 Stéphane BILLOIS</copyright>
     <productVersion>7.5.0.0</productVersion>
     <txtProductVersion>7.5</txtProductVersion>
-    <productName>FSH3D</productName>
-    <companyName>FSH3D</companyName>
-    <internalName>FSH3D</internalName>
-    <originalFilename>FSH3D.exe</originalFilename>
+    <productName>Cosy Home 3D</productName>
+    <companyName>Cosy Home 3D</companyName>
+    <internalName>Cosy Home 3D</internalName>
+    <originalFilename>CosyHome3D.exe</originalFilename>
   </versionInfo>
 </launch4jConfig>

@@ -1,7 +1,7 @@
 /*
  * SystemTheme.java
  *
- * FSH3D, Copyright (c) 2026 Stéphane BILLOIS
+ * Cosy Home 3D, Copyright (c) 2026 Stéphane BILLOIS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,11 @@
  */
 package com.eteks.sweethome3d.swing;
 
+import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.FilteredImageSource;
+import java.awt.image.RGBImageFilter;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,7 +46,74 @@ import com.eteks.sweethome3d.tools.OperatingSystem;
 public final class SystemTheme {
   private static final long COMMAND_TIMEOUT_MS = 2000;
 
+  /** Color of the 3D view navigation arrows in dark theme. */
+  public static final Color DARK_THEME_NAVIGATION_COLOR = new Color(0x54A3D8);
+  /** Default ground and sky colors of a home, replaced in 3D view by darker colors in dark theme. */
+  public static final int DEFAULT_GROUND_COLOR = 0xA8A8A8;
+  public static final int DEFAULT_SKY_COLOR = 0xCCE4FC;
+  public static final int DARK_THEME_GROUND_COLOR = 0x3A3D42;
+  public static final int DARK_THEME_SKY_COLOR = 0x4A5059;
+
   private SystemTheme() {
+  }
+
+  /**
+   * Returns <code>true</code> if Cosy Home 3D dark theme is the current look and feel.
+   */
+  public static boolean isDarkThemeInstalled() {
+    return UIManager.getLookAndFeel() instanceof CosyHome3DDarkLaf;
+  }
+
+  /**
+   * Returns the color displayed in 3D view for the given ground color:
+   * default ground color is darkened in dark theme, other colors chosen by user are kept.
+   * Home itself isn't modified.
+   */
+  public static int getDisplayedGroundColor(int groundColor) {
+    return groundColor == DEFAULT_GROUND_COLOR && isDarkThemeInstalled()
+        ? DARK_THEME_GROUND_COLOR
+        : groundColor;
+  }
+
+  /**
+   * Returns the color displayed in 3D view for the given sky color,
+   * darkened in dark theme if it's the default one.
+   */
+  public static int getDisplayedSkyColor(int skyColor) {
+    return skyColor == DEFAULT_SKY_COLOR && isDarkThemeInstalled()
+        ? DARK_THEME_SKY_COLOR
+        : skyColor;
+  }
+
+  /**
+   * Returns a copy of the given icon image colored with <code>color</code>,
+   * keeping its transparency and its shades.
+   */
+  public static Image colorizeImage(Image image, final Color color) {
+    return Toolkit.getDefaultToolkit().createImage(new FilteredImageSource(image.getSource(),
+        new RGBImageFilter() {
+          {
+            canFilterIndexColorModel = true;
+          }
+
+          public int filterRGB(int x, int y, int rgb) {
+            int alpha = rgb & 0xFF000000;
+            float luminance = (0.299f * ((rgb >> 16) & 0xFF)
+                + 0.587f * ((rgb >> 8) & 0xFF)
+                + 0.114f * (rgb & 0xFF)) / 255;
+            // Main shade of icon gets the given color, darker shades get darker, lighter get lighter
+            float factor = luminance / 0.7f;
+            int [] components = {color.getRed(), color.getGreen(), color.getBlue()};
+            int result = alpha;
+            for (int i = 0; i < 3; i++) {
+              float c = factor <= 1
+                  ? components [i] * factor
+                  : components [i] + (255 - components [i]) * Math.min(1, (factor - 1) * 2);
+              result |= Math.max(0, Math.min(255, Math.round(c))) << (16 - 8 * i);
+            }
+            return result;
+          }
+        }));
   }
 
   /**
@@ -77,10 +149,10 @@ public final class SystemTheme {
         break;
       default :
         LookAndFeel lookAndFeel = theme == UserPreferences.Theme.DARK
-            ? new FSH3DDarkLaf()
-            : new FSH3DLightLaf();
+            ? new CosyHome3DDarkLaf()
+            : new CosyHome3DLightLaf();
         UIManager.setLookAndFeel(lookAndFeel);
-        // FlatLaf classes are loaded by FSH3D class loader, not by the system one
+        // FlatLaf classes are loaded by Cosy Home 3D class loader, not by the system one
         UIManager.put("ClassLoader", lookAndFeel.getClass().getClassLoader());
         break;
     }

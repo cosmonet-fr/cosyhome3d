@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Icone provisoire Cosy Home 3D (64 px et plus), style plan d'architecte. Licence : GPL v2+, comme le projet. -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg10"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="bg"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="1">
+      <stop
+         offset="0"
+         stop-color="#2f78c8"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#15427a"
+         id="stop2" />
+    </linearGradient>
+    <pattern
+       id="grid"
+       width="32"
+       height="32"
+       patternUnits="userSpaceOnUse">
+      <path
+         d="M32 0H0V32"
+         fill="none"
+         stroke="#ffffff"
+         stroke-opacity="0.13"
+         stroke-width="2"
+         id="path2" />
+    </pattern>
+    <clipPath
+       id="tile">
+      <rect
+         width="512"
+         height="512"
+         rx="112"
+         id="rect2" />
+    </clipPath>
+  </defs>
+  <rect
+     width="512"
+     height="512"
+     rx="112"
+     fill="url(#bg)"
+     id="rect3" />
+  <rect
+     width="512"
+     height="512"
+     fill="url(#grid)"
+     clip-path="url(#tile)"
+     id="rect4" />
+  <!-- Ombre du trace, decalee comme un calque -->
+  <g
+     fill="none"
+     stroke="#0b2a52"
+     stroke-opacity="0.45"
+     stroke-width="30"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     transform="translate(8 10)"
+     id="g6">
+    <path
+       d="M62 262 L256 90 L450 262"
+       id="path4" />
+    <path
+       d="M114 222 V438 H398 V222"
+       id="path5" />
+    <path
+       d="M338 160 V100 H384 V200"
+       id="path6" />
+  </g>
+  <!-- Maison -->
+  <g
+     fill="none"
+     stroke="#ffffff"
+     stroke-width="30"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="g9">
+    <path
+       d="M62 262 L256 90 L450 262"
+       id="path7" />
+    <path
+       d="M114 222 V438 H398 V222"
+       id="path8" />
+    <path
+       d="M338 160 V100 H384 V200"
+       id="path9" />
+  </g>
+  <!-- Fumee de la cheminee -->
+  <path
+     d="M361 70 C340 56 380 44 360 22"
+     fill="none"
+     stroke="#ffffff"
+     stroke-opacity="0.85"
+     stroke-width="13"
+     stroke-linecap="round"
+     id="path10" />
+  <path
+     d="m 212.02637,343.82617 q 10.91211,2.81836 16.54883,9.82813 5.70898,6.9375 5.70898,17.70507 0,16.04297 -12.28516,24.42579 -12.28515,8.31054 -35.84375,8.31054 -8.31054,0 -16.69336,-1.37304 -8.31054,-1.30079 -16.47656,-3.97461 v -21.46289 q 7.80469,3.90234 15.46485,5.92578 7.73242,1.95117 15.17578,1.95117 11.05664,0 16.91015,-3.83008 5.92578,-3.83008 5.92578,-10.98437 0,-7.3711 -6.07031,-11.12891 -5.99805,-3.83008 -17.77734,-3.83008 H 171.48535 V 337.4668 h 11.70703 q 10.47852,0 15.60938,-3.25196 5.13086,-3.32422 5.13086,-10.04492 0,-6.21484 -4.98633,-9.61133 -4.98633,-3.39648 -14.0918,-3.39648 -6.7207,0 -13.58594,1.51758 -6.86523,1.51758 -13.6582,4.48047 v -20.37891 q 8.23828,-2.3125 16.33203,-3.46875 8.09375,-1.15625 15.89844,-1.15625 21.0293,0 31.43555,6.9375 10.47851,6.86523 10.47851,20.74023 0,9.4668 -4.98633,15.53711 -4.98632,5.99805 -14.74218,8.45508 z m 75.44531,-28.68945 v 65.83398 h 9.97266 q 17.05468,0 26.01562,-8.45508 9.0332,-8.45507 9.0332,-24.57031 0,-16.04297 -8.96093,-24.42578 -8.96094,-8.38281 -26.08789,-8.38281 z m -27.82227,-21.0293 h 29.33985 q 24.57031,0 36.5664,3.54102 12.06836,3.46875 20.66797,11.85156 7.58789,7.29883 11.27344,16.83789 3.68555,9.53906 3.68555,21.60742 0,12.21289 -3.68555,21.82422 -3.68555,9.53906 -11.27344,16.83789 -8.67187,8.38281 -20.8125,11.92383 Q 313.27051,402 288.98926,402 h -29.33985 z"
+     id="text10"
+     style="font-weight:bold;font-size:148px;font-family:'DejaVu Sans';text-anchor:middle;fill:#ffffff"
+     aria-label="3D" />
+</svg>

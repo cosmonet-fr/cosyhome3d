@@ -52,7 +52,7 @@ import com.eteks.sweethome3d.model.UserPreferences;
 import com.eteks.sweethome3d.tools.ResourceURLContent;
 
 /**
- * A MVC controller for FSH3D help view.
+ * A MVC controller for Cosy Home 3D help view.
  * @author Emmanuel Puybaret
  */
 public class HelpController implements Controller {
@@ -451,7 +451,7 @@ public class HelpController implements Controller {
           }
         }
       } catch (IOException ex) {
-        // Ignore unknown documents (their URLs should be checked outside of FSH3D)
+        // Ignore unknown documents (their URLs should be checked outside of Cosy Home 3D)
       }
     }
     // Sort by relevance
@@ -533,7 +533,7 @@ public class HelpController implements Controller {
           this.referencedDocuments.add(urlWithNoAnchor);
         }
       } catch (MalformedURLException e) {
-        // Ignore malformed URLs (they should be checked outside of FSH3D)
+        // Ignore malformed URLs (they should be checked outside of Cosy Home 3D)
       }
     }
 

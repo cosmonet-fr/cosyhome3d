@@ -1,40 +1,40 @@
 ﻿; installerInnoSetup.iss
 ;
-; FSH3D, based on Sweet Home 3D, Copyright (c) 2024 Space Mushrooms <info@sweethome3d.com>
+; Cosy Home 3D, based on Sweet Home 3D, Copyright (c) 2024 Space Mushrooms <info@sweethome3d.com>
 ;
-; FSH3D-7.5-windows.exe setup program creator
+; CosyHome3D-7.5-windows.exe setup program creator
 ; This UTF-8 BOM encoded script requires Inno Setup Unicode available at http://www.jrsoftware.org/isinfo.php
 ; and a build directory stored in current directory containing :
-;   a FSH3D.exe file built with launch4j
+;   a CosyHome3D.exe file built with launch4j
 ; + a jre... subdirectory containing a dump of Windows JRE without the files mentioned 
 ;   in the JRE README.TXT file (JRE bin/javaw.exe command excepted)     
-; + a lib subdirectory containing FSH3D.jar and Windows Java 3D DLLs and JARs for Java 3D
+; + a lib subdirectory containing CosyHome3D.jar and Windows Java 3D DLLs and JARs for Java 3D
 ; + file COPYING.TXT
 
 [Setup]
 DisableWelcomePage=no
-AppName=FSH3D
+AppName=Cosy Home 3D
 AppVersion=7.5
 AppCopyright=Copyright (c) 2026 Stéphane BILLOIS
-AppVerName=FSH3D version 7.5
-AppPublisher=FSH3D
+AppVerName=Cosy Home 3D version 0.1.1
+AppPublisher=Cosy Home 3D
 AppSupportURL=http://sweethome3d.sourceforge.net
 AppUpdatesURL=http://sweethome3d.sourceforge.net
 DisableDirPage=no
-DefaultDirName={pf}\FSH3D
-DefaultGroupName=FSH3D
+DefaultDirName={pf}\CosyHome3D
+DefaultGroupName=Cosy Home 3D
 LicenseFile=..\..\COPYING.TXT
 OutputDir=.
-OutputBaseFilename=FSH3D-7.5-windows
+OutputBaseFilename=CosyHome3D-7.5-windows
 Compression=lzma2/ultra64
 SolidCompression=yes
 ChangesAssociations=yes
 ExtraDiskSpaceRequired=104900000
 VersionInfoVersion=7.5.0.0
 VersionInfoTextVersion=7.5
-VersionInfoDescription=FSH3D Setup
+VersionInfoDescription=Cosy Home 3D Setup
 VersionInfoCopyright=Copyright (c) 2026 Stéphane BILLOIS
-VersionInfoCompany=FSH3D
+VersionInfoCompany=Cosy Home 3D
 ; Install in 64 bit mode if possible
 ArchitecturesInstallIn64BitMode=x64
 
@@ -77,7 +77,7 @@ Type: filesandordirs; Name: "{app}\lib\java3d-1.6"; Check: IsJava3D152Installed
 
 [Files]
 Source: "build\*.TXT"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "build\lib\FSH3D.jar"; DestDir: "{app}\lib"; Flags: ignoreversion
+Source: "build\lib\CosyHome3D.jar"; DestDir: "{app}\lib"; Flags: ignoreversion
 Source: "build\lib\Furniture.jar"; DestDir: "{app}\lib"; Flags: ignoreversion
 Source: "build\lib\Textures.jar"; DestDir: "{app}\lib"; Flags: ignoreversion
 Source: "build\lib\Examples.jar"; DestDir: "{app}\lib"; Flags: ignoreversion
@@ -110,26 +110,26 @@ Source: "build\lib\x64\*.dll"; DestDir: "{app}\lib"; Flags: ignoreversion; Check
 Source: "build\lib\java3d-1.6\x64\*.dll"; DestDir: "{app}\lib\java3d-1.6"; Flags: ignoreversion; Check: Is64BitInstalled and not IsJava3D152Installed
 Source: "build\lib\yafaray\x64\*.dll"; DestDir: "{app}\lib\yafaray"; Flags: ignoreversion recursesubdirs createallsubdirs; Check: Is64BitInstalled
 ; Install program for not 64 bit and Java 3D 1.5.2
-Source: "build\FSH3D-java3d-1.5.2-x86.exe"; DestDir: "{app}"; DestName: "FSH3D.exe"; Flags: ignoreversion; Check: not Is64BitInstalled and IsJava3D152Installed and not IsARM64
+Source: "build\CosyHome3D-java3d-1.5.2-x86.exe"; DestDir: "{app}"; DestName: "CosyHome3D.exe"; Flags: ignoreversion; Check: not Is64BitInstalled and IsJava3D152Installed and not IsARM64
 ; Install program for not 64 bit and not Java 3D 1.5.2
-Source: "build\FSH3D-x86.exe"; DestDir: "{app}"; DestName: "FSH3D.exe"; Flags: ignoreversion; Check: not Is64BitInstalled and not IsJava3D152Installed
+Source: "build\CosyHome3D-x86.exe"; DestDir: "{app}"; DestName: "CosyHome3D.exe"; Flags: ignoreversion; Check: not Is64BitInstalled and not IsJava3D152Installed
 ; Install program for 64 bit and Java 3D 1.5.2
-Source: "build\FSH3D-java3d-1.5.2-x64.exe"; DestDir: "{app}"; DestName: "FSH3D.exe"; Flags: ignoreversion; Check: Is64BitInstalled and IsJava3D152Installed
+Source: "build\CosyHome3D-java3d-1.5.2-x64.exe"; DestDir: "{app}"; DestName: "CosyHome3D.exe"; Flags: ignoreversion; Check: Is64BitInstalled and IsJava3D152Installed
 ; Install program for 64 bit and not Java 3D 1.5.2
-Source: "build\FSH3D-x64.exe"; DestDir: "{app}"; DestName: "FSH3D.exe"; Flags: ignoreversion; Check: Is64BitInstalled and not IsJava3D152Installed
+Source: "build\CosyHome3D-x64.exe"; DestDir: "{app}"; DestName: "CosyHome3D.exe"; Flags: ignoreversion; Check: Is64BitInstalled and not IsJava3D152Installed
 ; Install program for ARM 64 bit 
-Source: "build\FSH3D-java3d-1.5.2-x86-d3d.exe"; DestDir: "{app}"; DestName: "FSH3D.exe"; Flags: ignoreversion; Check: not Is64BitInstalled and IsJava3D152Installed and IsARM64
+Source: "build\CosyHome3D-java3d-1.5.2-x86-d3d.exe"; DestDir: "{app}"; DestName: "CosyHome3D.exe"; Flags: ignoreversion; Check: not Is64BitInstalled and IsJava3D152Installed and IsARM64
 
 [Icons]
-Name: "{group}\FSH3D"; Filename: "{app}\FSH3D.exe"; Comment: "{cm:FSH3DComment}"
-Name: "{group}\{cm:UninstallProgram,FSH3D}"; Filename: "{uninstallexe}"
-Name: "{userdesktop}\FSH3D"; Filename: "{app}\FSH3D.exe"; Tasks: desktopicon; Comment: "{cm:FSH3DComment}"
+Name: "{group}\CosyHome3D"; Filename: "{app}\CosyHome3D.exe"; Comment: "{cm:CosyHome3DComment}"
+Name: "{group}\{cm:UninstallProgram,Cosy Home 3D}"; Filename: "{uninstallexe}"
+Name: "{userdesktop}\CosyHome3D"; Filename: "{app}\CosyHome3D.exe"; Tasks: desktopicon; Comment: "{cm:CosyHome3DComment}"
 
 [Run]
 ; Unpack rt.jar
 Filename: "{app}\runtime\bin\unpack200.exe"; Parameters:"-r -q ""{app}\runtime\lib\rt.pack.gz"" ""{app}\runtime\lib\rt.jar"""; Flags: runhidden; StatusMsg: "{cm:UnpackingMessage,rt.jar}"; Check: not Is64BitInstalled
-; Propose user to launch FSH3D at installation end
-Filename: "{app}\FSH3D.exe"; Description: "{cm:LaunchProgram,FSH3D}"; Flags: nowait postinstall skipifsilent
+; Propose user to launch Cosy Home 3D at installation end
+Filename: "{app}\CosyHome3D.exe"; Description: "{cm:LaunchProgram,Cosy Home 3D}"; Flags: nowait postinstall skipifsilent
 
 [UninstallDelete]
 ; Delete files created by Launch4j
@@ -138,7 +138,7 @@ Type: filesandordirs; Name: "{app}\runtime\launch4j-tmp"
 Type: files; Name: "{app}\runtime\lib\rt.jar"; Check: not Is64BitInstalled
 Type: dirifempty; Name: "{app}\runtime\lib" 
 Type: dirifempty; Name: "{app}\runtime" 
-Type: files; Name: "{app}\lib\FSH3D.jar"
+Type: files; Name: "{app}\lib\CosyHome3D.jar"
 Type: dirifempty; Name: "{app}\lib" 
 Type: dirifempty; Name: "{app}" 
 
@@ -179,44 +179,44 @@ chinesesimp.UninstallExistingVersionCheckBox=卸除以前安装的版本
 chinesetrad.UninstallExistingVersionCheckBox=卸載以前安裝的版本
 japanese.UninstallExistingVersionCheckBox=前インストールバージョン削除
 
-FSH3DComment=Arrange the furniture of your house
-french.FSH3DComment=Aménagez les meubles de votre logement
-portuguese.FSH3DComment=Organiza as mobilias da sua casa
-brazilianportuguese.FSH3DComment=Organiza as mobilias da sua casa
-czech.FSH3DComment=Sestavte si design interieru vaseho domu
-polish.FSH3DComment=Zaprojektuj wnetrze swojego domu
-hungarian.FSH3DComment=Keszitse el lakasanak belso kialakitasat!
+CosyHome3DComment=Arrange the furniture of your house
+french.CosyHome3DComment=Aménagez les meubles de votre logement
+portuguese.CosyHome3DComment=Organiza as mobilias da sua casa
+brazilianportuguese.CosyHome3DComment=Organiza as mobilias da sua casa
+czech.CosyHome3DComment=Sestavte si design interieru vaseho domu
+polish.CosyHome3DComment=Zaprojektuj wnetrze swojego domu
+hungarian.CosyHome3DComment=Keszitse el lakasanak belso kialakitasat!
 
 UnpackingMessage=Unpacking %1...
 french.UnpackingMessage=Décompression du fichier %1...
 
 [Registry]
-Root: HKCR; Subkey: ".sh3d"; ValueType: string; ValueName: ""; ValueData: "FSH3D"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: ".sh3x"; ValueType: string; ValueName: ""; ValueData: "FSH3D"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D"; ValueType: string; ValueName: ""; ValueData: "FSH3D"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "FSH3D\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\FSH3D.exe,0"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\FSH3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D\Settings"; ValueType: string; ValueName: "checkUpdates"; ValueData: "{code:AreUpdatesChecked}"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: ".sh3d"; ValueType: string; ValueName: ""; ValueData: "CosyHome3D"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: ".sh3x"; ValueType: string; ValueName: ""; ValueData: "CosyHome3D"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "CosyHome3D"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "CosyHome3D\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\CosyHome3D.exe,0"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "CosyHome3D\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\CosyHome3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "CosyHome3D\Settings"; ValueType: string; ValueName: "checkUpdates"; ValueData: "{code:AreUpdatesChecked}"; Flags: uninsdeletevalue
 
-Root: HKCR; Subkey: ".sh3l"; ValueType: string; ValueName: ""; ValueData: "FSH3D Language Library"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D Language Library"; ValueType: string; ValueName: ""; ValueData: "FSH3D"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "FSH3D Language Library\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\FSH3D.exe,0"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D Language Library\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\FSH3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: ".sh3l"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D Language Library"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "Cosy Home 3D Language Library"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "Cosy Home 3D Language Library\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\CosyHome3D.exe,0"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "Cosy Home 3D Language Library\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\CosyHome3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
 
-Root: HKCR; Subkey: ".sh3f"; ValueType: string; ValueName: ""; ValueData: "FSH3D Furniture Library"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D Furniture Library"; ValueType: string; ValueName: ""; ValueData: "FSH3D"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "FSH3D Furniture Library\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\FSH3D.exe,0"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D Furniture Library\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\FSH3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: ".sh3f"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D Furniture Library"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "Cosy Home 3D Furniture Library"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "Cosy Home 3D Furniture Library\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\CosyHome3D.exe,0"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "Cosy Home 3D Furniture Library\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\CosyHome3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
 
-Root: HKCR; Subkey: ".sh3t"; ValueType: string; ValueName: ""; ValueData: "FSH3D Textures Library"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D Furniture Library"; ValueType: string; ValueName: ""; ValueData: "FSH3D"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "FSH3D Furniture Library\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\FSH3D.exe,0"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D Furniture Library\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\FSH3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: ".sh3t"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D Textures Library"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "Cosy Home 3D Furniture Library"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "Cosy Home 3D Furniture Library\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\CosyHome3D.exe,0"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "Cosy Home 3D Furniture Library\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\CosyHome3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
 
-Root: HKCR; Subkey: ".sh3p"; ValueType: string; ValueName: ""; ValueData: "FSH3D Plugin"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D Plugin"; ValueType: string; ValueName: ""; ValueData: "FSH3D"; Flags: uninsdeletekey
-Root: HKCR; Subkey: "FSH3D Plugin\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\FSH3D.exe,0"; Flags: uninsdeletevalue
-Root: HKCR; Subkey: "FSH3D Plugin\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\FSH3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
+Root: HKCR; Subkey: ".sh3p"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D Plugin"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "Cosy Home 3D Plugin"; ValueType: string; ValueName: ""; ValueData: "Cosy Home 3D"; Flags: uninsdeletekey
+Root: HKCR; Subkey: "Cosy Home 3D Plugin\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\CosyHome3D.exe,0"; Flags: uninsdeletevalue
+Root: HKCR; Subkey: "Cosy Home 3D Plugin\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\CosyHome3D.exe"" -open ""%1"""; Flags: uninsdeletevalue
 
 [Code]
 var architecture64Bit : boolean;
@@ -294,7 +294,7 @@ var
   uninstallKeyName : String;
   uninstallPath : String;
 begin
-  uninstallKeyName := 'Software\Microsoft\Windows\CurrentVersion\Uninstall\FSH3D_is1';
+  uninstallKeyName := 'Software\Microsoft\Windows\CurrentVersion\Uninstall\CosyHome3D_is1';
   uninstallPath := '';
   if not RegQueryStringValue(HKLM, uninstallKeyName, 'UninstallString', uninstallPath) then
     RegQueryStringValue(HKCU, uninstallKeyName, 'UninstallString', uninstallPath);

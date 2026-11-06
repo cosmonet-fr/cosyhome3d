@@ -1,7 +1,7 @@
 /*
  * XMLTools.java
  *
- * FSH3D, Copyright (c) 2026 Stéphane BILLOIS
+ * Cosy Home 3D, Copyright (c) 2026 Stéphane BILLOIS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

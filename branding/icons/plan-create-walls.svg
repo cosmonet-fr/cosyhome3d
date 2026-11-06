@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Cosy Home 3D provisional icon in Breeze style: L shaped wall seen from top, with hatching -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <style>.c { color: #232629; }</style>
+  <g class="c" fill="none" stroke="currentColor" stroke-width="1">
+    <path d="M 2.5 2.5 L 6.5 2.5 L 6.5 9.5 L 13.5 9.5 L 13.5 13.5 L 2.5 13.5 Z"/>
+    <path d="M 2.5 6.5 L 6.5 2.5 M 2.5 10.5 L 6.5 6.5 M 3.5 13.5 L 7.5 9.5 M 7.5 13.5 L 11.5 9.5 M 11.5 13.5 L 13.5 11.5"/>
+  </g>
+</svg>

@@ -102,6 +102,7 @@ import javax.swing.RootPaneContainer;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.ToolTipManager;
+import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.border.AbstractBorder;
 import javax.swing.border.Border;
@@ -1285,6 +1286,34 @@ public class SwingTools {
       // Ignore resolution
     }
     return 1f;
+  }
+
+  /**
+   * Returns the URL of the icon at <code>iconPath</code> matching the current theme:
+   * icons of resources/actions folder are searched first in its breeze subfolder
+   * for Cosy Home 3D light theme, and in its breeze-dark subfolder for Cosy Home 3D dark theme.
+   * The icons of the 3D view navigation panel keep their original colors.
+   */
+  public static URL getThemedIconResource(Class<?> resourceClass, String iconPath) {
+    String iconSet = null;
+    LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
+    if (lookAndFeel instanceof CosyHome3DDarkLaf) {
+      iconSet = "breeze-dark";
+    } else if (lookAndFeel instanceof CosyHome3DLightLaf) {
+      iconSet = "breeze";
+    }
+    int folderIndex = iconPath.lastIndexOf("resources/actions/");
+    if (iconSet != null
+        && folderIndex >= 0
+        && resourceClass != HomeComponent3D.class) {
+      int nameIndex = folderIndex + "resources/actions/".length();
+      String themedIconPath = "/com/eteks/sweethome3d/swing/resources/actions/" + iconSet + "/" + iconPath.substring(nameIndex);
+      URL themedIcon = SwingTools.class.getResource(themedIconPath);
+      if (themedIcon != null) {
+        return themedIcon;
+      }
+    }
+    return resourceClass.getResource(iconPath);
   }
 
   /**

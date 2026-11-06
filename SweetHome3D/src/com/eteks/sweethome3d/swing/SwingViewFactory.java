@@ -336,7 +336,7 @@ public class SwingViewFactory implements ViewFactory {
   }
 
   /**
-   * Returns a new view that displays FSH3D help.
+   * Returns a new view that displays Cosy Home 3D help.
    */
   public HelpView createHelpView(UserPreferences preferences,
                                  HelpController helpController) {

@@ -198,7 +198,7 @@ public class CatalogItemToolTip extends JToolTip {
         }
       } else if (isTipTextComplete()) {
         // Use an alternate HTML presentation that includes icon in an <img> tag
-        // for the Mac OS X users who still run FSH3D under Java 5
+        // for the Mac OS X users who still run Cosy Home 3D under Java 5
         // because jar protocol bug mentioned further doesn't cause issues under this system
         iconInHtmlImgTag = true;
 

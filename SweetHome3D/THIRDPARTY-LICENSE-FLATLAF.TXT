@@ -1,7 +1,7 @@
 The following additional provisions apply to flatlaf-3.8.jar third party software
 included as part of this product.
 
-FlatLaf library provides the light and dark themes of FSH3D.
+FlatLaf library provides the light and dark themes of Cosy Home 3D.
 FlatLaf is available at https://www.formdev.com/flatlaf/
 and distributed under the Apache License 2.0 reproduced below.
 

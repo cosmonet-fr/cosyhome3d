@@ -108,7 +108,7 @@ public class OperatingSystem {
    * Returns <code>true</code> if current operating is Mac OS X 10.5 or superior.
    */
   public static boolean isMacOSXLeopardOrSuperior() {
-    // Just need to test is OS version is different of 10.4 because FSH3D
+    // Just need to test is OS version is different of 10.4 because Cosy Home 3D
     // isn't supported under Mac OS X versions previous to 10.4
     return isMacOSX()
         && !System.getProperty("os.version").startsWith("10.4");
@@ -364,7 +364,7 @@ public class OperatingSystem {
       final File sessionTemporaryFolder = new File(temporaryFolder,
           versionPrefix + TEMPORARY_SESSION_SUB_FOLDER);
       if (!sessionTemporaryFolder.exists()) {
-        // Retrieve existing folders working with same FSH3D version in temporary folder
+        // Retrieve existing folders working with same Cosy Home 3D version in temporary folder
         final File [] siblingTemporaryFolders = temporaryFolder.listFiles(new FileFilter() {
             public boolean accept(File file) {
               return file.isDirectory()

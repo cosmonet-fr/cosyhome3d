@@ -24,7 +24,7 @@ import com.eteks.sweethome3d.model.Selectable;
 import com.eteks.sweethome3d.model.UserPreferences;
 
 /**
- * A factory that specifies how to create the 3D objects from FSH3D model objects.
+ * A factory that specifies how to create the 3D objects from Cosy Home 3D model objects.
  * @author Emmanuel Puybaret
  */
 public interface Object3DFactory {

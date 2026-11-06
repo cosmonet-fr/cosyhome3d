@@ -519,7 +519,9 @@ public class HomeComponent3D extends JComponent implements View3D, Printable {
               }
             });
     }
-    this.component3D.setBackground(new Color(230, 230, 230));
+    this.component3D.setBackground(SystemTheme.isDarkThemeInstalled()
+        ? new Color(SystemTheme.DARK_THEME_GROUND_COLOR)
+        : new Color(230, 230, 230));
 
     JPanel canvasPanel = new JPanel(new LayoutManager() {
         public void addLayoutComponent(String name, Component comp) {
@@ -658,7 +660,9 @@ public class HomeComponent3D extends JComponent implements View3D, Printable {
           } else {
             // Draw a surrounding oval if no navigation panel icon is defined
             Graphics2D g2D = (Graphics2D)g;
-            g2D.setColor(Color.BLACK);
+            g2D.setColor(SystemTheme.isDarkThemeInstalled()
+                ? SystemTheme.DARK_THEME_NAVIGATION_COLOR
+                : Color.BLACK);
             g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
             g2D.drawOval(x + 3, y + 3, width - 6, height - 6);
           }
@@ -712,6 +716,11 @@ public class HomeComponent3D extends JComponent implements View3D, Printable {
             // Manage auto repeat button with mouse listener
           }
         });
+      if (SystemTheme.isDarkThemeInstalled()) {
+        // Use the blue of dark theme instead of green for navigation arrows
+        setIcon(new ImageIcon(SystemTheme.colorizeImage(((ImageIcon)getIcon()).getImage(),
+            SystemTheme.DARK_THEME_NAVIGATION_COLOR)));
+      }
       // Create a darker press icon
       setPressedIcon(new ImageIcon(createImage(new FilteredImageSource(
           ((ImageIcon)getIcon()).getImage().getSource(),
@@ -2637,7 +2646,7 @@ public class HomeComponent3D extends JComponent implements View3D, Printable {
                                                final Appearance groundBackgroundAppearance,
                                                Home home,
                                                boolean waitForLoading) {
-    Color3f skyColor = new Color3f(new Color(home.getEnvironment().getSkyColor()));
+    Color3f skyColor = new Color3f(new Color(SystemTheme.getDisplayedSkyColor(home.getEnvironment().getSkyColor())));
     skyBackgroundAppearance.getColoringAttributes().setColor(skyColor);
     HomeTexture skyTexture = home.getEnvironment().getSkyTexture();
     if (skyTexture != null) {
@@ -2679,7 +2688,7 @@ public class HomeComponent3D extends JComponent implements View3D, Printable {
               });
       }
     } else {
-      int groundColor = home.getEnvironment().getGroundColor();
+      int groundColor = SystemTheme.getDisplayedGroundColor(home.getEnvironment().getGroundColor());
       Color3f color = new Color3f(((groundColor >>> 16) & 0xFF) / 255.f,
                                   ((groundColor >>> 8) & 0xFF) / 255.f,
                                    (groundColor & 0xFF) / 255.f);
@@ -2700,7 +2709,13 @@ public class HomeComponent3D extends JComponent implements View3D, Printable {
                                 boolean listenToHomeUpdates,
                                 boolean waitForLoading) {
     final Ground3D ground3D = new Ground3D(this.home, this.preferences, this,
-        groundOriginX, groundOriginY, groundWidth, groundDepth, waitForLoading);
+        groundOriginX, groundOriginY, groundWidth, groundDepth, waitForLoading) {
+        @Override
+        protected int getDisplayedGroundColor(int groundColor) {
+          // Darker default ground in dark theme, without changing home
+          return SystemTheme.getDisplayedGroundColor(groundColor);
+        }
+      };
     Transform3D translation = new Transform3D();
     translation.setTranslation(new Vector3f(0, -0.2f, 0));
     TransformGroup transformGroup = new TransformGroup(translation);

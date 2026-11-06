@@ -43,12 +43,12 @@ import javax.swing.JLabel;
 import com.eteks.sweethome3d.tools.ExtensionsClassLoader;
 
 /**
- * This applet class loads FSH3D classes from jars in classpath or from extension
+ * This applet class loads Cosy Home 3D classes from jars in classpath or from extension
  * jars stored as resources.
  * <p>This applet accepts the following parameters:
  *
  * <ul><li><code>furnitureCatalogURLs</code> specifies the URLs of the furniture libraries available
- *     in FSH3D catalog. These URLs are comma or space separated, and if they are not
+ *     in Cosy Home 3D catalog. These URLs are comma or space separated, and if they are not
  *     absolute URLs, they will be considered as relative to applet codebase. Each URL is a ZIP file
  *     that must contain a file named <code>PluginFurnitureCatalog.properties</code> describing the
  *     properties of each piece of furniture proposed by the URL file.
@@ -63,7 +63,7 @@ import com.eteks.sweethome3d.tools.ExtensionsClassLoader;
  *     furniture catalog file or absolute.</li>
  *
  *     <li><code>texturesCatalogURLs</code> specifies the URLs of the textures libraries available
- *     in FSH3D catalog. These URLs are comma or space separated, and if they are not
+ *     in Cosy Home 3D catalog. These URLs are comma or space separated, and if they are not
  *     absolute URLs, they will be considered as relative to applet codebase. Each URL is a ZIP file
  *     that must contain a file named <code>PluginTexturesCatalog.properties</code> describing the
  *     properties of each texture proposed by the URL file.

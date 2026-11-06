@@ -1373,7 +1373,7 @@ public class FileUserPreferences extends UserPreferences {
   }
 
   /**
-   * Returns the first FSH3D application folder.
+   * Returns the first Cosy Home 3D application folder.
    */
   public File getApplicationFolder() throws IOException {
     File [] applicationFolders = getApplicationFolders();
@@ -1385,7 +1385,7 @@ public class FileUserPreferences extends UserPreferences {
   }
 
   /**
-   * Returns FSH3D application folders.
+   * Returns Cosy Home 3D application folders.
    * Caution : This method can be called from constructor so overriding implementations
    * shouldn't be based on the state of their fields.
    */
@@ -1398,7 +1398,7 @@ public class FileUserPreferences extends UserPreferences {
   }
 
   /**
-   * Returns subfolders of FSH3D application folders of a given name.
+   * Returns subfolders of Cosy Home 3D application folders of a given name.
    * Caution : This method can be called from constructor so overriding implementations
    * shouldn't be based on the state of their fields.
    */
@@ -1500,8 +1500,8 @@ public class FileUserPreferences extends UserPreferences {
     if (this.preferences != null) {
       return this.preferences;
     } else {
-      // FSH3D: own Java preferences node, distinct from Sweet Home 3D one
-      return Preferences.userRoot().node("/fsh3d/io");
+      // Cosy Home 3D: own Java preferences node, distinct from Sweet Home 3D one
+      return Preferences.userRoot().node("/cosyhome3d/io");
     }
   }
 

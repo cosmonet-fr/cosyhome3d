@@ -32,3 +32,10 @@ build/
 # Captures d'écran locales
 Screenshot*.png
 Capture d'écran*.png
+
+# Python
+__pycache__/
+
+# Paquets macOS
+build-macos/
+dist/

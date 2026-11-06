@@ -1,7 +1,7 @@
 /*
  * HomeSerializationFilter.java
  *
- * FSH3D, Copyright (c) 2026 Stéphane BILLOIS
+ * Cosy Home 3D, Copyright (c) 2026 Stéphane BILLOIS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ public final class HomeSerializationFilter {
       "com.eteks.sweethome3d.model."};
 
   private static final Set<String> ALLOWED_CLASSES = new HashSet<String>(Arrays.asList(
-      // FSH3D classes outside of model package
+      // Cosy Home 3D classes outside of model package
       "com.eteks.sweethome3d.io.DefaultPatternTexture",
       "com.eteks.sweethome3d.io.HomeURLContent",
       "com.eteks.sweethome3d.tools.URLContent",

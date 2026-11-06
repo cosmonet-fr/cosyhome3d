@@ -1868,7 +1868,7 @@ public class Home implements Serializable, Cloneable {
    * Sets a property associated with this home. Once the property is updated,
    * listeners added to this home will receive a change event of
    * {@link PropertyChangeEvent} class.<br>
-   * To avoid any issue with existing or future properties of FSH3D classes,
+   * To avoid any issue with existing or future properties of Cosy Home 3D classes,
    * do not use property names written with only upper case letters.
    * @param name   the name of the property to set
    * @param value  the new value of the property
@@ -1942,8 +1942,8 @@ public class Home implements Serializable, Cloneable {
   /**
    * Returns the version of this home, the last time it was serialized or
    * or {@link #CURRENT_VERSION} if it is not serialized yet or
-   * was serialized with FSH3D 0.x.
-   * Version is useful to know with which FSH3D version this home was saved
+   * was serialized with Cosy Home 3D 0.x.
+   * Version is useful to know with which Cosy Home 3D version this home was saved
    * and warn user that he may lose information if he saves with
    * current application a home created by a more recent version.
    */

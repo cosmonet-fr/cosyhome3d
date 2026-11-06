@@ -129,12 +129,12 @@ public class ResourceAction extends AbstractAction {
 
     String smallIcon = getOptionalString(preferences, resourceClass, propertyPrefix + SMALL_ICON, false);
     if (smallIcon != null) {
-      putValue(SMALL_ICON, SwingTools.getScaledImageIcon(resourceClass.getResource(smallIcon)));
+      putValue(SMALL_ICON, SwingTools.getScaledImageIcon(SwingTools.getThemedIconResource(resourceClass, smallIcon)));
     }
 
     String toolBarIcon = getOptionalString(preferences, resourceClass, propertyPrefix + TOOL_BAR_ICON, false);
     if (toolBarIcon != null) {
-      putValue(TOOL_BAR_ICON, SwingTools.getScaledImageIcon(resourceClass.getResource(toolBarIcon)));
+      putValue(TOOL_BAR_ICON, SwingTools.getScaledImageIcon(SwingTools.getThemedIconResource(resourceClass, toolBarIcon)));
     }
 
     String propertyKey = propertyPrefix + ACCELERATOR_KEY;
