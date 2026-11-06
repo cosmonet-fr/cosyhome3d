@@ -37,6 +37,11 @@
     <release version="0.1" date="2026-11-06">
       <description>
         <p>First pre-alpha release, based on Sweet Home 3D 7.5 source code (SVN rev. 9047).</p>
+        <ul>
+          <li>New light and dark themes, following the system mode by default</li>
+          <li>Safer opening of home files (deserialization allow list, XML external entities blocked)</li>
+          <li>Own preferences and data folders, separated from Sweet Home 3D</li>
+        </ul>
       </description>
     </release>
   </releases>

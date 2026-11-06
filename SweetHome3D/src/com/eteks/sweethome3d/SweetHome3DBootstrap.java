@@ -58,6 +58,7 @@ public class SweetHome3DBootstrap {
         "freehep-vectorgraphics-svg-2.1.1c.jar",
         "sunflow-0.07.3i.jar",
         "jmf.jar",
+        "flatlaf-3.8.jar",
         "jnlp.jar"}));
     String yafarayPluginsFolder = null;
     List<String> yafarayWindowsDlls = new ArrayList<String>();

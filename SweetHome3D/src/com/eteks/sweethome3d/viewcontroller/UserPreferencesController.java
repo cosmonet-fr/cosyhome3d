@@ -39,7 +39,7 @@ public class UserPreferencesController implements Controller {
       FURNITURE_VIEWED_FROM_TOP, FURNITURE_MODEL_ICON_SIZE, ROOM_FLOOR_COLORED_OR_TEXTURED, WALL_PATTERN, NEW_WALL_PATTERN,
       NEW_WALL_THICKNESS, NEW_WALL_HEIGHT, NEW_FLOOR_THICKNESS, FURNITURE_CATALOG_VIEWED_IN_TREE,
       NAVIGATION_PANEL_VISIBLE, EDITING_IN_3D_VIEW_ENABLED, AERIAL_VIEW_CENTERED_ON_SELECTION_ENABLED, OBSERVER_CAMERA_SELECTED_AT_CHANGE,
-      CHECK_UPDATES_ENABLED, AUTO_SAVE_DELAY_FOR_RECOVERY, AUTO_SAVE_FOR_RECOVERY_ENABLED}
+      CHECK_UPDATES_ENABLED, AUTO_SAVE_DELAY_FOR_RECOVERY, AUTO_SAVE_FOR_RECOVERY_ENABLED, THEME}
 
   private final UserPreferences         preferences;
   private final ViewFactory             viewFactory;
@@ -53,6 +53,7 @@ public class UserPreferencesController implements Controller {
   private boolean                       valueAddedTaxEnabled;
   private boolean                       furnitureCatalogViewedInTree;
   private boolean                       navigationPanelVisible;
+  private UserPreferences.Theme         theme;
   private boolean                       editingIn3DViewEnabled;
   private boolean                       aerialViewCenteredOnSelectionEnabled;
   private boolean                       observerCameraSelectedAtChange;
@@ -138,6 +139,7 @@ public class UserPreferencesController implements Controller {
     setValueAddedTaxEnabled(this.preferences.isValueAddedTaxEnabled());
     setFurnitureCatalogViewedInTree(this.preferences.isFurnitureCatalogViewedInTree());
     setNavigationPanelVisible(this.preferences.isNavigationPanelVisible());
+    setTheme(this.preferences.getTheme());
     setEditingIn3DViewEnabled(this.preferences.isEditingIn3DViewEnabled());
     setAerialViewCenteredOnSelectionEnabled(this.preferences.isAerialViewCenteredOnSelectionEnabled());
     setObserverCameraSelectedAtChange(this.preferences.isObserverCameraSelectedAtChange());
@@ -270,6 +272,24 @@ public class UserPreferencesController implements Controller {
    */
   public boolean isFurnitureCatalogViewedInTree() {
     return this.furnitureCatalogViewedInTree;
+  }
+
+  /**
+   * Sets the edited user interface theme.
+   */
+  public void setTheme(UserPreferences.Theme theme) {
+    if (this.theme != theme) {
+      UserPreferences.Theme oldTheme = this.theme;
+      this.theme = theme;
+      this.propertyChangeSupport.firePropertyChange(Property.THEME.name(), oldTheme, theme);
+    }
+  }
+
+  /**
+   * Returns the edited user interface theme.
+   */
+  public UserPreferences.Theme getTheme() {
+    return this.theme;
   }
 
   /**
@@ -675,6 +695,7 @@ public class UserPreferencesController implements Controller {
     this.preferences.setValueAddedTaxEnabled(isValueAddedTaxEnabled());
     this.preferences.setFurnitureCatalogViewedInTree(isFurnitureCatalogViewedInTree());
     this.preferences.setNavigationPanelVisible(isNavigationPanelVisible());
+    this.preferences.setTheme(getTheme());
     this.preferences.setEditingIn3DViewEnabled(isEditingIn3DViewEnabled());
     this.preferences.setAerialViewCenteredOnSelectionEnabled(isAerialViewCenteredOnSelectionEnabled());
     this.preferences.setObserverCameraSelectedAtChange(isObserverCameraSelectedAtChange());

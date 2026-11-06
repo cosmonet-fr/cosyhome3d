@@ -1,0 +1,98 @@
+FSH3D - Notes de version
+========================
+
+FSH3D est un fork de Sweet Home 3D 7.5 (SVN r9047, avril 2025), créé par
+Emmanuel Puybaret et distribué sous licence GNU GPL v2 ou ultérieure.
+Ce fichier liste toutes les modifications apportées depuis le fork.
+
+
+0.1 (pré-alpha) - en cours
+--------------------------
+
+Nom et identité
+
+- L'application s'appelle FSH3D partout : titres de fenêtres, menus, boîtes de
+  dialogue, aide intégrée (17 langues), installeurs, Flatpak, Javadoc.
+- Nouvelle icône et nouvel écran de démarrage provisoires, style plan
+  d'architecte bleu. Sources SVG et script de génération dans branding/.
+- Boîte "A propos" réécrite (anglais et français) : mention du fork, de
+  l'auteur d'origine et des deux copyrights. Les traductions obsolètes de ce
+  message (bulgare, grec, russe, chinois) affichent désormais l'anglais.
+- Liens vers sweethome3d.com retirés des menus, de l'aide et des assistants
+  d'import. Les boutons "Trouver des modèles", "Trouver des textures" et
+  "Plus d'exemples" sont masqués en attendant un site FSH3D.
+- Numérotation propre au fork : la version affichée passe à 0.1. Le numéro
+  interne de format de fichier (Home.CURRENT_VERSION) est inchangé.
+
+Conservé volontairement pour la licence et la compatibilité
+
+- Mentions de copyright et @author d'origine (obligatoires avec la GPL).
+- Crédits des modèles 3D et textures (licences CC-BY).
+- Noms de packages et de classes Java (com.eteks.sweethome3d) et identifiants
+  de catalogue "eTeks#...", nécessaires pour ouvrir les fichiers .sh3d
+  existants et pour faire fonctionner les plugins.
+
+Thèmes
+
+- Nouveaux thèmes clair et sombre (bibliothèque FlatLaf 3.8, Apache 2.0).
+- Le thème sombre est construit sur le bleu du logo plutôt que sur un gris
+  neutre. Le plan y prend l'aspect d'un plan d'architecte (fond bleu nuit,
+  traits clairs).
+- Par défaut, FSH3D suit le mode clair ou sombre du système : portail XDG
+  (GNOME, KDE, y compris dans le Flatpak), réglages GNOME ou KDE, macOS et
+  Windows.
+- Nouveau réglage "Thème" dans les préférences : Comme le système, Clair,
+  Sombre, Classique (ancienne apparence, celle du système). Le changement
+  s'applique au prochain démarrage.
+- Option de lancement -Dcom.eteks.sweethome3d.theme=DARK (ou LIGHT, SYSTEM,
+  CLASSIC) pour forcer un thème.
+
+Sécurité
+
+- Ouverture des fichiers .sh3d durcie : la lecture de l'ancienne entrée
+  "Home" (objets Java sérialisés) n'accepte plus que les classes du modèle et
+  quelques classes de base du JDK. Un fichier piégé ne peut plus faire
+  exécuter de code à l'ouverture. Vérifié sur 298 fichiers existants, qui
+  s'ouvrent tous normalement. Les plugins qui enregistrent leurs propres
+  objets peuvent étendre la liste avec
+  -Dcom.eteks.sweethome3d.allowedSerializedClasses=nom.de.classe,package.
+- Lecture XML protégée contre les entités externes (XXE) et l'expansion
+  d'entités ("billion laughs") pour Home.xml, les modèles 3D COLLADA (.dae)
+  et le flux de mises à jour.
+- Vérification des mises à jour désactivée : elle interrogeait le serveur de
+  Sweet Home 3D en http et aurait proposé ses versions. La case
+  correspondante est masquée dans les préférences.
+
+Données et préférences
+
+- FSH3D utilise ses propres préférences (nœud Java /fsh3d) et ses propres
+  dossiers de données (~/.local/share/fsh3d sous Linux, dossier FSH3D sous
+  Windows et macOS). Avant, il partageait ceux de Sweet Home 3D, y compris le
+  port de l'instance unique : ouvrir un fichier dans FSH3D pouvait l'envoyer
+  à Sweet Home 3D s'il était déjà lancé.
+- Conséquence : au premier lancement, les préférences sont vierges et les
+  meubles importés dans Sweet Home 3D ne sont pas repris.
+
+Compilation et paquets
+
+- Compilation possible avec Java 11 et plus (classes applet exclues, JApplet
+  ayant disparu de Java 11).
+- Paquet Flatpak io.fsh3d.FSH3D (runtime freedesktop 24.08, OpenJDK 21),
+  icônes 32 à 512 px et SVG, licence déclarée GPL-2.0-or-later.
+- Avertissement d'accès natif de JOGL supprimé au lancement
+  (--enable-native-access).
+- Installeurs Linux, macOS et Windows remis en cohérence avec build.xml
+  (fichiers renommés FSH3D, identifiant macOS io.fsh3d.FSH3D).
+- Les bibliothèques de lib/ et les modèles d'installeurs sont désormais suivis
+  par git (ils étaient exclus par erreur du dépôt, qui ne compilait pas après
+  un clone).
+
+Restes à traiter
+
+- FurnitureLibraryEditor, TexturesLibraryEditor et SweetHome3DJS ne sont pas
+  encore renommés.
+- Code applet et Java Web Start (deploy/) obsolète, à supprimer.
+- Bibliothèques anciennes : iText 2.1.7 (à remplacer par OpenPDF), JMF 2.1.1e
+  (abandonné depuis 2003).
+- Permissions Flatpak à restreindre (--filesystem=home, réseau).
+- Thème testé sous Linux (KDE) uniquement, pas encore sous macOS ni Windows.

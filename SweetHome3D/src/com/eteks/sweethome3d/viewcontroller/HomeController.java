@@ -56,7 +56,6 @@ import javax.swing.undo.UndoableEdit;
 import javax.swing.undo.UndoableEditSupport;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -104,6 +103,7 @@ import com.eteks.sweethome3d.model.UserPreferences;
 import com.eteks.sweethome3d.model.Wall;
 import com.eteks.sweethome3d.tools.OperatingSystem;
 import com.eteks.sweethome3d.tools.ResourceURLContent;
+import com.eteks.sweethome3d.tools.XMLTools;
 
 /**
  * A MVC controller for the home view.
@@ -3295,9 +3295,7 @@ public class HomeController implements Controller {
    */
   private Map<Library, List<Update>> readAvailableUpdates(URL url, List<Library> libraries, Long minDate, int timeout) throws IOException, SAXException {
     try {
-      SAXParserFactory factory = SAXParserFactory.newInstance();
-      factory.setValidating(false);
-      SAXParser saxParser = factory.newSAXParser();
+      SAXParser saxParser = XMLTools.newSecureSAXParserFactory().newSAXParser();
       UpdatesHandler updatesHandler = new UpdatesHandler(url);
       URLConnection connection = url.openConnection();
       if (timeout > 0) {

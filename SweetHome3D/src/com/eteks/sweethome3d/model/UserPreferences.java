@@ -56,7 +56,13 @@ public abstract class UserPreferences {
                         NEW_WALL_THICKNESS, NEW_WALL_HEIGHT, NEW_WALL_SIDEBOARD_THICKNESS, NEW_WALL_SIDEBOARD_HEIGHT, NEW_ROOM_FLOOR_COLOR, NEW_FLOOR_THICKNESS,
                         RECENT_HOMES, IGNORED_ACTION_TIP, FURNITURE_CATALOG_VIEWED_IN_TREE, NAVIGATION_PANEL_VISIBLE,
                         AERIAL_VIEW_CENTERED_ON_SELECTION_ENABLED, OBSERVER_CAMERA_SELECTED_AT_CHANGE, EDITING_IN_3D_VIEW_ENABLED, CHECK_UPDATES_ENABLED,
-                        UPDATES_MINIMUM_DATE, AUTO_SAVE_DELAY_FOR_RECOVERY, AUTO_COMPLETION_STRINGS, RECENT_COLORS, RECENT_TEXTURES, HOME_EXAMPLES, PHOTO_RENDERER}
+                        UPDATES_MINIMUM_DATE, AUTO_SAVE_DELAY_FOR_RECOVERY, AUTO_COMPLETION_STRINGS, RECENT_COLORS, RECENT_TEXTURES, HOME_EXAMPLES, PHOTO_RENDERER, THEME}
+
+  /**
+   * The user interface themes. <code>SYSTEM</code> follows the light or dark mode
+   * of the operating system, <code>CLASSIC</code> uses the look and feel of the system.
+   */
+  public enum Theme {SYSTEM, LIGHT, DARK, CLASSIC}
 
   public static final String FURNITURE_LIBRARY_TYPE = "Furniture library";
   public static final String TEXTURES_LIBRARY_TYPE  = "Textures library";
@@ -103,6 +109,7 @@ public abstract class UserPreferences {
   private LengthUnit       unit;
   private boolean          furnitureCatalogViewedInTree = true;
   private boolean          navigationPanelVisible = true;
+  private Theme            theme = Theme.SYSTEM;
   private boolean          editingIn3DViewEnabled;
   private boolean          aerialViewCenteredOnSelectionEnabled;
   private boolean          observerCameraSelectedAtChange = true;
@@ -619,6 +626,27 @@ public abstract class UserPreferences {
       this.furnitureCatalogViewedInTree = furnitureCatalogViewedInTree;
       this.propertyChangeSupport.firePropertyChange(Property.FURNITURE_CATALOG_VIEWED_IN_TREE.name(),
           !furnitureCatalogViewedInTree, furnitureCatalogViewedInTree);
+    }
+  }
+
+  /**
+   * Returns the user interface theme. A change is taken into account at next launch.
+   */
+  public Theme getTheme() {
+    return this.theme;
+  }
+
+  /**
+   * Sets the user interface theme.
+   */
+  public void setTheme(Theme theme) {
+    if (theme == null) {
+      theme = Theme.SYSTEM;
+    }
+    if (this.theme != theme) {
+      Theme oldTheme = this.theme;
+      this.theme = theme;
+      this.propertyChangeSupport.firePropertyChange(Property.THEME.name(), oldTheme, theme);
     }
   }
 

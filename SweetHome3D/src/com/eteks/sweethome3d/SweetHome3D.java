@@ -94,6 +94,7 @@ import com.eteks.sweethome3d.plugin.PluginManager;
 import com.eteks.sweethome3d.swing.FileContentManager;
 import com.eteks.sweethome3d.swing.SwingTools;
 import com.eteks.sweethome3d.swing.SwingViewFactory;
+import com.eteks.sweethome3d.swing.SystemTheme;
 import com.eteks.sweethome3d.tools.OperatingSystem;
 import com.eteks.sweethome3d.viewcontroller.ContentManager;
 import com.eteks.sweethome3d.viewcontroller.HomeController;
@@ -189,7 +190,8 @@ public class SweetHome3D extends HomeApplication {
    */
   protected SweetHome3D() {
     this.homeFrameControllers = new HashMap<Home, HomeFrameController>();
-    this.checkUpdatesNeeded = Boolean.parseBoolean(System.getProperty("com.eteks.sweethome3d.checkUpdates", "true"));
+    // No FSH3D update server yet: update check disabled unless com.eteks.sweethome3d.checkUpdates=true
+    this.checkUpdatesNeeded = Boolean.parseBoolean(System.getProperty("com.eteks.sweethome3d.checkUpdates", "false"));
   }
 
   /**
@@ -586,13 +588,15 @@ public class SweetHome3D extends HomeApplication {
    */
   private void initLookAndFeel() {
     try {
-      // Apply current system look and feel if swing.defaultlaf isn't defined
-      UIManager.setLookAndFeel(System.getProperty("swing.defaultlaf", UIManager.getSystemLookAndFeelClassName()));
+      // Apply the theme chosen in preferences (light, dark, following system, or classic),
+      // unless swing.defaultlaf is defined
+      SystemTheme.installLookAndFeel(getUserPreferences().getTheme());
+      boolean aquaLookAndFeel = "Aqua".equals(UIManager.getLookAndFeel().getID());
       // Change default titled borders under Mac OS X 10.5
-      if (OperatingSystem.isMacOSXLeopardOrSuperior()) {
+      if (aquaLookAndFeel && OperatingSystem.isMacOSXLeopardOrSuperior()) {
         UIManager.put("TitledBorder.border", UIManager.getBorder("TitledBorder.aquaVariant"));
       }
-      if (OperatingSystem.isMacOSXYosemiteOrSuperior()) {
+      if (aquaLookAndFeel && OperatingSystem.isMacOSXYosemiteOrSuperior()) {
         UIManager.put("SplitPaneDivider.border", new Border() {
             public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
               // Set a border that fills the divider with the expected background color (instead of white)

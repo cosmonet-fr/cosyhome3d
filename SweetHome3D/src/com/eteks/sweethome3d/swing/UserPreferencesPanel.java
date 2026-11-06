@@ -63,6 +63,7 @@ import javax.swing.JSpinner;
 import javax.swing.KeyStroke;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingUtilities;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -81,9 +82,12 @@ import com.eteks.sweethome3d.viewcontroller.View;
  */
 public class UserPreferencesPanel extends JPanel implements DialogView {
   private final UserPreferencesController controller;
+  private final UserPreferences preferences;
   private JLabel           languageLabel;
   private JComboBox        languageComboBox;
   private JButton          languageLibraryImportButton;
+  private JLabel           themeLabel;
+  private JComboBox        themeComboBox;
   private JLabel           unitLabel;
   private JComboBox        unitComboBox;
   private JLabel           currencyLabel;
@@ -142,6 +146,7 @@ public class UserPreferencesPanel extends JPanel implements DialogView {
                               UserPreferencesController controller) {
     super(new GridBagLayout());
     this.controller = controller;
+    this.preferences = preferences;
     createComponents(preferences, controller);
     setMnemonics(preferences);
     layoutComponents();
@@ -195,6 +200,38 @@ public class UserPreferencesPanel extends JPanel implements DialogView {
           });
       preferences.addPropertyChangeListener(UserPreferences.Property.SUPPORTED_LANGUAGES,
           new SupportedLanguagesChangeListener(this));
+    }
+
+    if (controller.isPropertyEditable(UserPreferencesController.Property.THEME)) {
+      // Create theme label and combo box bound to controller THEME property
+      this.themeLabel = new JLabel(SwingTools.getLocalizedLabelText(preferences,
+          UserPreferencesPanel.class, "themeLabel.text"));
+      this.themeComboBox = new JComboBox(UserPreferences.Theme.values());
+      final UserPreferences localizedPreferences = preferences;
+      this.themeComboBox.setRenderer(new DefaultListCellRenderer() {
+          @Override
+          public Component getListCellRendererComponent(JList list,
+              Object value, int index, boolean isSelected, boolean cellHasFocus) {
+            String displayedValue = localizedPreferences.getLocalizedString(UserPreferencesPanel.class,
+                "themeComboBox." + ((UserPreferences.Theme)value).name() + ".text");
+            return super.getListCellRendererComponent(list, displayedValue, index, isSelected, cellHasFocus);
+          }
+        });
+      this.themeComboBox.setSelectedItem(controller.getTheme());
+      this.themeComboBox.addItemListener(new ItemListener() {
+          public void itemStateChanged(ItemEvent ev) {
+            if (ev.getStateChange() == ItemEvent.SELECTED) {
+              controller.setTheme((UserPreferences.Theme)themeComboBox.getSelectedItem());
+            }
+          }
+        });
+      controller.addPropertyChangeListener(UserPreferencesController.Property.THEME,
+          new PropertyChangeListener() {
+            public void propertyChange(PropertyChangeEvent ev) {
+              themeComboBox.setSelectedItem(controller.getTheme());
+            }
+          });
+      this.themeLabel.setLabelFor(this.themeComboBox);
     }
 
     if (controller.mayImportLanguageLibrary()) {
@@ -737,7 +774,7 @@ public class UserPreferencesPanel extends JPanel implements DialogView {
     }
 
     if (controller.isPropertyEditable(UserPreferencesController.Property.CHECK_UPDATES_ENABLED)
-        && Boolean.parseBoolean(System.getProperty("com.eteks.sweethome3d.checkUpdates", "true"))) {
+        && Boolean.parseBoolean(System.getProperty("com.eteks.sweethome3d.checkUpdates", "false"))) {
       // Create check box bound to controller CHECK_UPDATES_ENABLED property
       this.checkUpdatesCheckBox = new JCheckBox(SwingTools.getLocalizedLabelText(preferences,
           UserPreferencesPanel.class, "checkUpdatesCheckBox.text"), controller.isCheckUpdatesEnabled());
@@ -1070,6 +1107,15 @@ public class UserPreferencesPanel extends JPanel implements DialogView {
           GridBagConstraints.HORIZONTAL, rightComponentInsets, macOSX ? -20 : 0, 0));
       // Keep third row empty (used to contain unit radio buttons)
     }
+    if (this.themeLabel != null) {
+      // Third row
+      add(this.themeLabel, new GridBagConstraints(
+          0, 2, 1, 1, 0, 0, labelAlignment,
+          GridBagConstraints.NONE, labelInsets, 0, 0));
+      add(this.themeComboBox, new GridBagConstraints(
+          1, 2, 1, 1, 0, 0, GridBagConstraints.LINE_START,
+          GridBagConstraints.HORIZONTAL, rightComponentInsets, 0, 0));
+    }
     if (this.currencyLabel != null) {
       // Fourth row
       add(this.currencyLabel, new GridBagConstraints(
@@ -1320,7 +1366,13 @@ public class UserPreferencesPanel extends JPanel implements DialogView {
     if (SwingTools.showConfirmDialog((JComponent)parentView,
             this, this.dialogTitle, this.languageComboBox) == JOptionPane.OK_OPTION
         && this.controller != null) {
+      UserPreferences.Theme oldTheme = this.preferences.getTheme();
       this.controller.modifyUserPreferences();
+      if (oldTheme != this.preferences.getTheme()) {
+        JOptionPane.showMessageDialog(SwingUtilities.getRootPane((JComponent)parentView),
+            this.preferences.getLocalizedString(UserPreferencesPanel.class, "themeChangedMessage.text"),
+            this.dialogTitle, JOptionPane.INFORMATION_MESSAGE);
+      }
     }
   }
 

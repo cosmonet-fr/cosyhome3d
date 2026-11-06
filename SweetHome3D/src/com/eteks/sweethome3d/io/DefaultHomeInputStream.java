@@ -29,7 +29,9 @@ import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
+import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
+import java.io.ObjectStreamClass;
 import java.io.OutputStream;
 import java.io.PushbackInputStream;
 import java.net.URL;
@@ -44,7 +46,6 @@ import java.util.zip.ZipOutputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
@@ -54,6 +55,7 @@ import com.eteks.sweethome3d.model.HomePieceOfFurniture;
 import com.eteks.sweethome3d.model.UserPreferences;
 import com.eteks.sweethome3d.tools.OperatingSystem;
 import com.eteks.sweethome3d.tools.URLContent;
+import com.eteks.sweethome3d.tools.XMLTools;
 
 /**
  * An <code>InputStream</code> filter that reads a home from a stream
@@ -367,8 +369,7 @@ public class DefaultHomeInputStream extends FilterInputStream {
    */
   private Home readHomeXML(InputStream in, HomeContentContext contentContext) throws IOException {
     try {
-      SAXParserFactory factory = SAXParserFactory.newInstance();
-      SAXParser saxParser = factory.newSAXParser();
+      SAXParser saxParser = XMLTools.newSecureSAXParserFactory().newSAXParser();
       this.xmlHandler.setContentContext(contentContext);
       saxParser.parse(in, this.xmlHandler);
       return this.xmlHandler.getHome();
@@ -607,6 +608,19 @@ public class DefaultHomeInputStream extends FilterInputStream {
         enableResolveObject(true);
         this.contentContext = contentContext;
       }
+    }
+
+    @Override
+    protected Class<?> resolveClass(ObjectStreamClass classDescriptor) throws IOException, ClassNotFoundException {
+      // Refuse any class that isn't expected in a home to block deserialization attacks
+      HomeSerializationFilter.checkClass(classDescriptor.getName());
+      return super.resolveClass(classDescriptor);
+    }
+
+    @Override
+    protected Class<?> resolveProxyClass(String [] interfaces) throws IOException, ClassNotFoundException {
+      // Homes never contain proxies
+      throw new InvalidClassException("Proxy classes not allowed in a home file");
     }
 
     @Override

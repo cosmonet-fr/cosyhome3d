@@ -66,7 +66,6 @@ import javax.vecmath.Vector3d;
 import javax.vecmath.Vector3f;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -81,6 +80,7 @@ import com.sun.j3d.loaders.SceneBase;
 import com.sun.j3d.utils.geometry.GeometryInfo;
 import com.sun.j3d.utils.geometry.NormalGenerator;
 import com.sun.j3d.utils.image.TextureLoader;
+import com.eteks.sweethome3d.tools.XMLTools;
 
 /**
  * A loader for DAE Collada 1.4.1 format as specified by
@@ -179,8 +179,7 @@ public class DAELoader extends LoaderBase implements Loader {
                                URL baseUrl) throws IOException {
     try {
       SceneBase scene = new SceneBase();
-      SAXParserFactory factory = SAXParserFactory.newInstance();
-      SAXParser saxParser = factory.newSAXParser();
+      SAXParser saxParser = XMLTools.newSecureSAXParserFactory().newSAXParser();
       saxParser.parse(in, new DAEHandler(scene, baseUrl));
       return scene;
     } catch (ParserConfigurationException ex) {
