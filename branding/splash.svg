@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Splash screen temporaire FSH3D, style plan d'architecte. Licence : GPL v2+, comme le projet. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a6cb8"/>
+      <stop offset="1" stop-color="#153f73"/>
+    </linearGradient>
+    <pattern id="gridFine" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#ffffff" stroke-opacity="0.11" stroke-width="1"/>
+    </pattern>
+    <pattern id="gridMajor" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M100 0H0V100" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  <rect width="1200" height="600" fill="url(#gridFine)"/>
+  <rect width="1200" height="600" fill="url(#gridMajor)"/>
+  <rect x="24" y="24" width="1152" height="552" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="3"/>
+
+  <!-- Plan d'un petit logement -->
+  <g fill="none" stroke="#ffffff" stroke-linecap="square">
+    <!-- Murs extérieurs -->
+    <path d="M100 120 H480 V460 H100 Z" stroke-width="10"/>
+    <!-- Cloisons -->
+    <path d="M300 120 V250 M300 310 V460 M100 300 H210 M260 300 H300" stroke-width="6"/>
+    <!-- Porte d'entrée et portes intérieures -->
+    <g stroke-width="2.5">
+      <path d="M380 460 V400 A60 60 0 0 1 440 460"/>
+      <path d="M300 250 H360 A60 60 0 0 1 300 310"/>
+      <path d="M210 300 V250 A50 50 0 0 1 260 300"/>
+    </g>
+    <!-- Fenêtres -->
+    <g stroke-width="2.5">
+      <path d="M150 116 H250 M150 124 H250"/>
+      <path d="M350 116 H440 M350 124 H440"/>
+      <path d="M476 200 V280 M484 200 V280"/>
+      <path d="M96 360 V420 M104 360 V420"/>
+    </g>
+    <!-- Mobilier -->
+    <g stroke-width="2" stroke-opacity="0.85">
+      <rect x="320" y="140" width="90" height="120" rx="6"/>
+      <path d="M320 165 H410"/>
+      <rect x="130" y="330" width="140" height="60" rx="8"/>
+      <rect x="130" y="390" width="40" height="45" rx="6"/>
+      <circle cx="400" cy="370" r="30"/>
+      <rect x="120" y="150" width="70" height="40"/>
+      <rect x="200" y="150" width="70" height="40"/>
+    </g>
+    <!-- Cotations -->
+    <g stroke-width="2" stroke-opacity="0.9">
+      <path d="M100 520 H480 M100 505 V535 M480 505 V535 M92 528 L108 512 M472 528 L488 512"/>
+      <path d="M530 120 V460 M515 120 H545 M515 460 H545 M522 128 L538 112 M522 468 L538 452"/>
+    </g>
+  </g>
+  <g font-family="DejaVu Sans" fill="#ffffff" font-size="22" text-anchor="middle">
+    <text x="290" y="500">7,60 m</text>
+    <text x="0" y="0" transform="translate(565 290) rotate(-90)">6,80 m</text>
+  </g>
+
+  <!-- Titre -->
+  <g font-family="DejaVu Sans" font-weight="bold" fill="none" stroke="#ffffff" stroke-linejoin="round">
+    <text x="666" y="290" font-size="128" letter-spacing="4" stroke-opacity="0.35" stroke-width="3">FSH3D</text>
+    <text x="662" y="286" font-size="128" letter-spacing="4" stroke-width="7">FSH3D</text>
+  </g>
+  <path d="M640 334 H1140" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="14 8"/>
+  <g font-family="DejaVu Sans" fill="#ffffff">
+    <text x="664" y="384" font-size="34">Interior design in 2D and 3D</text>
+    <text x="664" y="432" font-size="26" fill-opacity="0.85">Version 0.1 · pre-alpha</text>
+    <text x="1140" y="548" font-size="20" fill-opacity="0.8" text-anchor="end">Free software · GNU General Public License</text>
+  </g>
+</svg>

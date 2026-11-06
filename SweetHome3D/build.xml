@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <!-- build.xml
 
-     FSH3D, Copyright (c) 2024 Space Mushrooms <info@sweethome3d.com>.
+     FSH3D, Copyright (c) 2026 Stéphane BILLOIS.
+     Based on Sweet Home 3D, Copyright (c) 2024 Space Mushrooms <info@sweethome3d.com>.
 
      Ant build file. Available targets :
      - build       : Builds FSH3D.jar file in build directory
@@ -33,7 +34,7 @@
 -->
 <project basedir="." default="jarExecutable" name="FSH3D">
   <!-- Current version of FSH3D -->
-  <property name="version" value="7.5"/>
+  <property name="version" value="0.1"/>
   <!-- Java source and target compatiblity (Java 9 and higher doesn't support 1.5) -->
   <condition property="appletClassSource" value="1.2" else="1.8">
     <matches string="${ant.java.version}" pattern="1\.5|1\.6|1\7|1\.8"/>
@@ -1724,12 +1725,11 @@
     <javadoc sourcepath="src" destdir="install/javadoc/FSH3D-${version}-javadoc"
              encoding="ISO-8859-1" version="true" author="true" use="true"
              windowtitle="FSH3D ${version} API">
-      <doctitle><![CDATA[<img src='http://www.sweethome3d.com/FSH3DIcon.gif' width='48' height='48' alt='FSH3D' align='absmiddle'> FSH3D ${version} API]]></doctitle>
-      <header><![CDATA[<a href='http://www.sweethome3d.com' target='_parent'><font size='+1'>FSH3D ${version}</font></a>]]></header>
-      <footer><![CDATA[<a href='http://www.sweethome3d.com' target='_parent'><font size='+1'>FSH3D ${version}</font></a>]]></footer>
+      <doctitle><![CDATA[FSH3D ${version} API]]></doctitle>
+      <header><![CDATA[<font size='+1'>FSH3D ${version}</font>]]></header>
+      <footer><![CDATA[<font size='+1'>FSH3D ${version}</font>]]></footer>
       <bottom><![CDATA[<table align='center'><tr>
-                       <td><a href='http://www.sweethome3d.com' target='_parent'><img align='absmiddle' src='http://www.sweethome3d.com/images/SpaceMushroomsLogo.png' border='0'><a></td>
-                       <td>&copy; Copyright 2024 Space Mushrooms
+                       <td>&copy; Copyright 2026 Stéphane BILLOIS, based on Sweet Home 3D &copy; Copyright 2024 Space Mushrooms
                            <br>Distributed under <a href='http://www.gnu.org/licenses/gpl-2.0.html' target='_parent'>GNU General Public License</a></td></tr></table>]]></bottom>
       <link href="http://docs.oracle.com/javase/1.5.1/docs/api/"/>
       <link href="http://download.java.net/media/java3d/javadoc/1.5.3/"/>

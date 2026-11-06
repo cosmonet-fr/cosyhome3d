@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=FSH3D
 GenericName=Interior Design
-Comment=Free interior design application - Fork of Sweet Home 3D
+Comment=Free interior design application
 Exec=fsh3d %f
 Icon=io.fsh3d.FSH3D
 Terminal=false

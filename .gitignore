@@ -1,11 +1,19 @@
 # Build output
-SweetHome3D/install/
-SweetHome3D/deploy/
+SweetHome3D/install/*.jar
+SweetHome3D/install/*.zip
+SweetHome3D/install/*.exe
+SweetHome3D/install/*.dmg
+SweetHome3D/install/*.tgz
 FurnitureLibraryEditor/install/
 TexturesLibraryEditor/install/
 *.class
-*.jar
-*.war
+
+# Flatpak
+*.flatpak
+flatpak-build/
+.flatpak-builder/
+flatpak/.flatpak-builder/
+repo/
 
 # IDE
 .idea/
@@ -20,3 +28,7 @@ Thumbs.db
 
 # Ant
 build/
+
+# Captures d'écran locales
+Screenshot*.png
+Capture d'écran*.png

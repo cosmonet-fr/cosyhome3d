@@ -167,6 +167,9 @@ public class SweetHome3D extends HomeApplication {
   private static final String     PREFERENCES_FOLDER             = "com.eteks.sweethome3d.preferencesFolder";
   private static final String     APPLICATION_FOLDERS            = "com.eteks.sweethome3d.applicationFolders";
   private static final String     APPLICATION_PLUGINS_SUB_FOLDER = "plugins";
+  // FSH3D: own Java preferences node, to avoid sharing settings and the single
+  // instance server port with an installed Sweet Home 3D
+  static final String             PREFERENCES_NODE               = "/fsh3d";
 
   private HomeRecorder            homeRecorder;
   private HomeRecorder            compressedHomeRecorder;
@@ -934,7 +937,7 @@ public class SweetHome3D extends HomeApplication {
 
     @Override
     protected File getLastDirectory(ContentType contentType) {
-      Preferences preferences = Preferences.userNodeForPackage(this.mainClass);
+      Preferences preferences = Preferences.userRoot().node(PREFERENCES_NODE);
       String directoryPath = null;
       if (contentType != null) {
         directoryPath = preferences.get(LAST_DIRECTORY + contentType, null);
@@ -955,7 +958,7 @@ public class SweetHome3D extends HomeApplication {
     protected void setLastDirectory(ContentType contentType, File directory) {
       // Last directories are not recorded in user preferences since there's no need of portability
       // from a computer to an other
-      Preferences preferences = Preferences.userNodeForPackage(this.mainClass);
+      Preferences preferences = Preferences.userRoot().node(PREFERENCES_NODE);
       if (directory == null) {
         preferences.remove(LAST_DIRECTORY + contentType);
       } else {
@@ -1103,7 +1106,7 @@ public class SweetHome3D extends HomeApplication {
         // Launch a server that waits for other FSH3D launches
         serverSocket = new ServerSocket(0, 0, InetAddress.getByName("127.0.0.1"));
         // Share server port in preferences
-        Preferences preferences = Preferences.userNodeForPackage(this.mainClass);
+        Preferences preferences = Preferences.userRoot().node(PREFERENCES_NODE);
         preferences.putInt(SINGLE_INSTANCE_PORT, serverSocket.getLocalPort());
         preferences.flush();
       } catch (IOException ex) {
@@ -1146,7 +1149,7 @@ public class SweetHome3D extends HomeApplication {
     public void removeSingleInstanceListener(SingleInstanceListener l) {
       this.singleInstanceListeners.remove(l);
       if (this.singleInstanceListeners.isEmpty()) {
-        Preferences preferences = Preferences.userNodeForPackage(this.mainClass);
+        Preferences preferences = Preferences.userRoot().node(PREFERENCES_NODE);
         preferences.remove(SINGLE_INSTANCE_PORT);
         try {
           preferences.flush();
@@ -1163,7 +1166,7 @@ public class SweetHome3D extends HomeApplication {
       if (!OperatingSystem.isMacOSX()) {
         // No server under Mac OS X, multiple application launches are managed
         // by com.apple.eawt.ApplicationListener in MacOSXConfiguration class
-        Preferences preferences = Preferences.userNodeForPackage(mainClass);
+        Preferences preferences = Preferences.userRoot().node(PREFERENCES_NODE);
         int singleInstancePort = preferences.getInt(SINGLE_INSTANCE_PORT, -1);
         if (singleInstancePort != -1) {
           try {

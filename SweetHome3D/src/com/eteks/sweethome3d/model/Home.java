@@ -411,7 +411,7 @@ public class Home implements Serializable, Cloneable {
     // Create a default top camera that matches default point of view
     this.topCamera = new Camera(HOME_TOP_CAMERA_ID, 50, 1050, 1010,
         (float)Math.PI, (float)Math.PI / 4, (float)Math.PI * 63 / 180);
-    // Create a default observer camera (use a 63ï¿½ field of view equivalent to a 35mm lens for a 24x36 film)
+    // Create a default observer camera (use a 63° field of view equivalent to a 35mm lens for a 24x36 film)
     this.observerCamera = new ObserverCamera(HOME_OBSERVER_CAMERA_ID, 50, 50, 170,
         7 * (float)Math.PI / 4, (float)Math.PI / 16, (float)Math.PI * 63 / 180);
     this.storedCameras = Collections.emptyList();

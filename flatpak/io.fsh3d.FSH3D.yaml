@@ -33,7 +33,7 @@ modules:
     buildsystem: simple
     sources:
       - type: file
-        path: ../SweetHome3D/install/FSH3D-7.5.jar
+        path: ../SweetHome3D/install/FSH3D-0.1.jar
         dest-filename: FSH3D.jar
       - type: file
         path: io.fsh3d.FSH3D.desktop
@@ -44,6 +44,12 @@ modules:
       - type: file
         path: io.fsh3d.FSH3D-32.png
       - type: file
+        path: io.fsh3d.FSH3D-256.png
+      - type: file
+        path: io.fsh3d.FSH3D-512.png
+      - type: file
+        path: io.fsh3d.FSH3D.svg
+      - type: file
         path: fsh3d.sh
     build-commands:
       # Install application JAR
@@ -53,6 +59,9 @@ modules:
       # Install icons
       - install -Dm644 io.fsh3d.FSH3D.png /app/share/icons/hicolor/128x128/apps/io.fsh3d.FSH3D.png
       - install -Dm644 io.fsh3d.FSH3D-32.png /app/share/icons/hicolor/32x32/apps/io.fsh3d.FSH3D.png
+      - install -Dm644 io.fsh3d.FSH3D-256.png /app/share/icons/hicolor/256x256/apps/io.fsh3d.FSH3D.png
+      - install -Dm644 io.fsh3d.FSH3D-512.png /app/share/icons/hicolor/512x512/apps/io.fsh3d.FSH3D.png
+      - install -Dm644 io.fsh3d.FSH3D.svg /app/share/icons/hicolor/scalable/apps/io.fsh3d.FSH3D.svg
       # Install desktop entry
       - install -Dm644 io.fsh3d.FSH3D.desktop /app/share/applications/io.fsh3d.FSH3D.desktop
       # Install appstream metadata

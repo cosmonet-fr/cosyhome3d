@@ -1,13 +1,8 @@
-FSH3D v 7.5
+FSH3D v 0.1
 -------------------
 
 This archive contains source code of FSH3D, an interior design Java application.
-Please read http://www.sweethome3d.com/history.html for more information
-about new features available in this version.
-
-You may also download this source code with the following SVN command:
-
-git clone https://github.com/YOUR_USERNAME/fsh3d.git
+FSH3D is a fork of Sweet Home 3D 7.5 (SVN revision 9047), created by Emmanuel Puybaret.
 
 
 HOW TO USE THIS SOURCE CODE
@@ -44,9 +39,6 @@ to run the program:
 --add-opens=java.desktop/com.apple.eio=ALL-UNNAMED
 --add-opens=java.desktop/com.apple.eawt=ALL-UNNAMED
 
-The last release of FSH3D can be tested directly as a Java Web Start 
-application or downloaded at http://www.sweethome3d.com/ 
-
 If you want to build FSH3D with Ant, please install last JDK 5 or greater and 
 Ant available at http://ant.apache.org/, and run ant command in the directory where
 you uncompressed this archive.
@@ -63,5 +55,6 @@ Read LICENSE.TXT file for more details about licenses applicable to this softwar
 and included materials developed by third parties.
     
     
-FSH3D, Copyright (c) 2024 Space Mushrooms. 
+FSH3D, Copyright (c) 2026 Stéphane BILLOIS.
+Based on Sweet Home 3D, Copyright (c) 2024 Space Mushrooms.
 Distributed under GNU General Public License    

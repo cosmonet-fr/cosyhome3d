@@ -196,6 +196,7 @@ public class ImportedTextureWizardStepsPanel extends JPanel implements View {
         });
     } catch (IllegalArgumentException ex) {
       // Don't create findImagesButton if its text or url isn't defined
+      this.findImagesButton = null;
     }
     this.imageChoiceErrorLabel = new JLabel(preferences.getLocalizedString(
         ImportedTextureWizardStepsPanel.class, "imageChoiceErrorLabel.text"));

@@ -1493,7 +1493,8 @@ public class FileUserPreferences extends UserPreferences {
     if (this.preferences != null) {
       return this.preferences;
     } else {
-      return Preferences.userNodeForPackage(FileUserPreferences.class);
+      // FSH3D: own Java preferences node, distinct from Sweet Home 3D one
+      return Preferences.userRoot().node("/fsh3d/io");
     }
   }
 

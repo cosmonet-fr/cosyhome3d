@@ -253,6 +253,7 @@ public class ImportedFurnitureWizardStepsPanel extends JPanel
         });
     } catch (IllegalArgumentException ex) {
       // Don't create findModelsButton if its text or url isn't defined
+      this.findModelsButton = null;
     }
     this.modelChoiceErrorLabel = new JLabel(preferences.getLocalizedString(
         ImportedFurnitureWizardStepsPanel.class, "modelChoiceErrorLabel.text"));

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Variante simplifiée pour 16 et 32 px : sans grille fine, lettres pleines. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a6cb8"/>
+      <stop offset="1" stop-color="#16467f"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#bg)"/>
+  <g stroke="#ffffff" stroke-opacity="0.22" stroke-width="1">
+    <line x1="1" y1="32" x2="63" y2="32"/><line x1="32" y1="1" x2="32" y2="63"/>
+  </g>
+  <g font-family="DejaVu Sans" font-weight="bold" text-anchor="middle" fill="#ffffff">
+    <text x="32" y="29" font-size="22">FSH</text>
+    <text x="32" y="55" font-size="24">3D</text>
+  </g>
+</svg>

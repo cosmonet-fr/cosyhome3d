@@ -2,12 +2,12 @@
 <component type="desktop-application">
   <id>io.fsh3d.FSH3D</id>
   <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-2.0-only</project_license>
+  <project_license>GPL-2.0-or-later</project_license>
   <name>FSH3D</name>
   <summary>Free interior design application</summary>
   <description>
     <p>
-      FSH3D (Fork Sweet Home 3D) is a free interior design application that helps you
+      FSH3D is a free interior design application that helps you
       place furniture in your home on a 2D plan, with a 3D view preview.
     </p>
     <p>Features include:</p>
@@ -34,9 +34,9 @@
   </provides>
   <content_rating type="oars-1.1"/>
   <releases>
-    <release version="7.5" date="2025-04-02">
+    <release version="0.1" date="2026-11-06">
       <description>
-        <p>Fork of Sweet Home 3D 7.5 (GPL v2 upstream, SVN rev. 9047)</p>
+        <p>First pre-alpha release, based on Sweet Home 3D 7.5 source code (SVN rev. 9047).</p>
       </description>
     </release>
   </releases>
